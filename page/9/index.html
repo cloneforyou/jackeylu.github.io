@@ -370,27 +370,27 @@
 
 
   
-    <article id="post-zzjeopardy-ibm-and-wolframalpha" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-swarmagents_ai-摘译：机器世纪" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2011/02/20/zzjeopardy-ibm-and-wolframalpha/">[zz]Jeopardy, IBM, and Wolfram|Alpha</a>
+      <a class="article-title" href="/2011/02/22/swarmagents_ai-摘译：机器世纪/">[swarmagents_ai] 摘译：机器世纪</a>
     </h1>
   
 
         
-        <a href="/2011/02/20/zzjeopardy-ibm-and-wolframalpha/" class="archive-article-date">
-  	<time datetime="2011-02-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2011-02-20</time>
+        <a href="/2011/02/22/swarmagents_ai-摘译：机器世纪/" class="archive-article-date">
+  	<time datetime="2011-02-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2011-02-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>原文转载stephen wolfram的文章</p> <p>原文地址<a href="http://blog.stephenwolfram.com/2011/01/jeopardy-ibm-and-wolframalpha/" target="_blank" rel="external">http://blog.stephenwolfram.com/2011/01/jeopardy-ibm-and-wolframalpha/</a></p> <p>当是情人节大战还没有开始</p> <table class="post_head"> <tbody> <tr> <td> <h1><a href="http://blog.stephenwolfram.com/2011/01/jeopardy-ibm-and-wolframalpha/" rel="external" title="Permanent Link to Jeopardy, IBM, and Wolfram|Alpha" target="_blank"><em>Jeopardy</em>, IBM, and Wolfram|Alpha</a></h1> <div class="date">January 26, 2011</div> </td> </tr> </tbody> </table> <div class="single_post_content"> <p>About a month before <a href="http://wolframalpha.com/" target="_blank" rel="external">Wolfram|Alpha</a> launched, I was on the phone with a group from IBM, talking about our vision for computable knowledge in Wolfram|Alpha. A few weeks later, the group announced that they were going to use what they had done in natural language processing to try to make a system to compete on <em>Jeopardy</em>.</p> <p>I thought it was a brilliant way to showcase their work-and IBM's capabilities in general. And now, a year and a half later, IBM has built an impressive level of anticipation for their upcoming <em>Jeopardy</em> television event. Whatever happens (and IBM's system certainly should be able to win), one thing is clear: what IBM is doing will have an important effect in changing peoples' expectations for how they might be able to interact with computers.</p> <p>When Wolfram|Alpha was launched, people at first kept on referring to it as a "new search engine"-because basically keyword search was the only model they had for how they might find information on a large scale. But IBM's project gives a terrific example of another model: question answering. And when people internalize this model, they'll be coming a lot closer to realizing what's possible with what we're building in Wolfram|Alpha.</p> <p>So what really is the relation between Wolfram|Alpha and the IBM <em>Jeopardy</em> project?</p> <div style="position:relative;height:525px;"> <div style="position:absolute;top:0;left:-50px;"><img src="http://jackeylu.files.wordpress.com/2011/02/watsonalpha.jpg" style="width:600px;display:inline;height:525px;" title="IBM Watson and Wolfram|Alpha" height="525" width="600" alt="IBM Watson and Wolfram|Alpha"></div> </div> <p><span id="more-791"></span></p> <p>IBM's basic approach has a long history, with a lineage in the field of information retrieval that is in many ways shared with search engines. The essential idea is to start with textual documents, and then to build a system to statistically match questions that are asked to answers that are represented in the documents. (The first step is to search for textual matches to a question-using thesaurus-like and other linguistic transformations. The harder work is then to take the list of potential answers, use a diversity of different methods to score them, and finally combine these scores to choose a top answer.)</p> <p>Early versions of this approach go back nearly 50 years, to the first phase of artificial intelligence research. And incremental progress has been made-notably as tracked for the past 20 years in the annual TREC (Text Retrieval Conference) question answering competition. IBM's <em>Jeopardy</em> system is very much in this tradition-though with more sophisticated systems engineering, and with special features aimed at the particular (complex) task of competing on <em>Jeopardy</em>.</p> <p>Wolfram|Alpha is a completely different kind of thing-something much more radical, based on a quite different paradigm. The key point is that Wolfram|Alpha is not dealing with documents, or anything derived from them. Instead, it is dealing directly with raw, precise, computable knowledge. And what's inside it is not statistical representations of text, but actual representations of knowledge.</p> <p>The input to Wolfram|Alpha can be a question in natural language. But what Wolfram|Alpha does is to convert this natural language into a precise computable internal form. And then it takes this form, and uses its computable knowledge to compute an answer to the question.</p> <p>There's a lot of technology and new ideas that are required to make this work. And I must say that when I started out developing Wolfram|Alpha I wasn't at all sure it was going to be possible. But after years of hard work-and some breakthroughs-I'm happy to say it's turned out really well. And Wolfram|Alpha is now successfully answering millions of questions on the web and elsewhere about a huge variety of different topics every day.</p> <p>And in a sense Wolfram|Alpha fully understands every answer it gives. It's not somehow serving up pieces of statistical matches to documents it was fed. It's actually computing its answers, based on knowledge that it has. And most of the answers it computes are completely new: they've never been computed or written down before.</p> <p>In IBM's approach, the main part of the work goes into tuning the statistical matching procedures that are used-together in the case of <em>Jeopardy</em> with adding a collection of special rules to handle particular situations that come up.</p> <p>In Wolfram|Alpha most of the work is just adding computable knowledge to the system. Curating data, hooking up real-time feeds, injecting domain-specific expertise, implementing computational algorithms-and building up our kind of generalized grammar that captures the natural language used for queries.</p> <p>In developing Wolfram|Alpha, we've been steadily building out different areas of knowledge, concentrating first on ones that address fairly short questions that people ask, and that are important in practice. We're almost exactly at the opposite end of things from what's needed in <em>Jeopardy</em>-and from the direct path that IBM has taken to that goal. There's no doubt that in time Wolfram|Alpha will be able to do things like the <em>Jeopardy</em> task-though in an utterly different way from the IBM system-but that's not what it's built for today.</p> <p>(It's an interesting metric that Wolfram|Alpha currently knows about three quarters of the entities that arise in <em>Jeopardy</em> questions-which I don't consider too shabby, given that this is pretty far from anything we've actually set up Wolfram|Alpha to do.)</p> <p>In the last couple of weeks, though, I've gotten curious about what's actually involved in doing the <em>Jeopardy</em> task. Forget Wolfram|Alpha entirely for a moment. What's the most obvious way to try doing <em>Jeopardy</em>?</p> <p>What about just using a plain old search engine? And just feeding <em>Jeopardy</em> clues into it, and seeing what documents get matched. Well, just for fun, we tried that. We sampled randomly from the 200,000 or so <em>Jeopardy</em> clues that have been aired. Then we took each clue and fed it as input (without quotes) to a search engine. Then we looked at the search engine result page, and (a) saw how frequently the correct <em>Jeopardy</em> answer appeared somewhere in the titles or text snippets on the page, and (b) saw how frequently it appeared in the top document returned by the search engine. (More details are given in this <a href="http://blog.stephenwolfram.com/data/uploads/2011/01/Jeopardy_methodology.nb" target="_blank" rel="external"><em>Mathematica</em> notebook</a> [download <em>Player</em> <a href="http://www.wolfram.com/products/player/" target="_blank" rel="external">here</a>]. Obviously we excluded sites that are specifically about <em>Jeopardy</em>!)</p> <p><img src="http://jackeylu.files.wordpress.com/2011/02/answer_diagram.gif" style="width:505px;display:inline;height:270px;" title="Search engine comparisons" height="270" width="505" alt="Search engine comparisons" class="alignnone size-full wp-image-902"></p> <p>If nothing else, this gives us pretty interesting information about the modern search engine landscape. In particular, it shows us that the more mature search systems are getting to be remarkably similar in their raw performance-so that other aspects of user experience (like <a href="http://products.wolframalpha.com/business/" target="_blank" rel="external">Wolfram|Alpha integration</a>!) are likely to become progressively more important.</p> <p>But in terms of <em>Jeopardy</em>, what we see is that just using a plain old search engine gets surprisingly far. Of course, the approach here isn't really solving the complete <em>Jeopardy</em> problem: it's only giving pages on which the answer should appear, not giving specific actual answers. One can try various simple strategies for going further. Like getting the answer from the title of the first hit-which with the top search engines actually does succeed about 20% of the time.</p> <p>But ultimately it's clear that one's going to have to do more work to actually compete on <em>Jeopardy</em>-which is what IBM has done.</p> <p>So what's the broader significance of the <em>Jeopardy</em> project? It's yet another example of how something that seems like artificial intelligence can be achieved with a system that's in a sense "just doing computation" (and as such, it can be viewed as yet another piece of evidence for the general <a href="http://www.wolframscience.com/nksonline/chapter-12" target="_blank" rel="external">Principle of Computational Equivalence</a> that's emerged from my work in science).</p> <p>But at a more practical level, it's related to an activity that has been central to IBM's business throughout its history: handling internal data of corporations and other organizations.</p> <p>There are typically two general kinds of corporate data: structured (often numerical, and, in the future, increasingly acquired automatically) and unstructured (often textual or image-based). The IBM <em>Jeopardy</em> approach has to do with answering questions from unstructured textual data-with such potential applications as mining medical documents or patents, or doing ediscovery in litigation. It's only rather recently that even search engine methods have become widely used for these kinds of tasks-and with its <em>Jeopardy</em> project approach IBM joins a spectrum of companies trying to go further using natural-language-processing methods.</p> <p>When it comes to structured corporate data, the <em>Jeopardy</em> project approach is not what's relevant. And instead here there's a large industry based on traditional business intelligence and data mining methods-that in effect allow one to investigate structured data in structured ways.</p> <p>And it's in this area that there's a particularly obvious breakthrough made possible by the technology of Wolfram|Alpha: being able for the first time to automatically investigate structured data in completely free-form unstructured ways. One asks a question in natural language, and a custom version of Wolfram|Alpha built from particular corporate data can use its computational knowledge and algorithms to compute an answer based on the data-and in fact generate a whole report about the answer.</p> <p>So what kind of synergy could there be between Wolfram|Alpha and IBM's <em>Jeopardy</em> approach? It didn't happen this time around, but if there's a Watson 2.0, it should be set up to be able to call the <a href="http://products.wolframalpha.com/api" target="_blank" rel="external">Wolfram|Alpha API</a>. IBM apparently already uses a certain amount of structured data and rules in, for example, scoring candidate answers. But what we've found is that even just in natural language processing, there's much more that can be done if one has access to deep broad computational knowledge at every stage. And when it comes to actually answering many kinds of questions, one needs the kind of ability that Wolfram|Alpha has to compute things.</p> <p>On the other side, in terms of data in Wolfram|Alpha, we mostly concentrate on definitive structured sources. But sometimes there's no choice but to try to extract structured data from unstructured textual sources. In our experience, this is always an unreliable process (achieving at most perhaps 80% correctness)-and so far we mostly use it only to "prime the pump" for later expert curation. But perhaps with something like IBM's <em>Jeopardy</em> approach it'll be possible to get a good supply of probabilistic candidate data answers-that can themselves be used as fodder for the whole Wolfram|Alpha computational knowledge engine system.</p> <p>It'll be interesting to see what the future holds for all of this. But for now, I shall simply look forward to IBM's appearance on <em>Jeopardy</em>.</p> <p>IBM has had a long and distinguished history of important R&amp;D-something a disappointingly small number of companies can say today. I have had some good friends at IBM Research (sadly, not all still alive), and IBM as a company has much to be admired. It's great to see IBM putting on such an impressive show, in an area that's so close to my own longstanding interests.</p> <p>Good luck on <em>Jeopardy</em>! I'll be rooting for you, Watson.</p> </div> <p class="poweredbyzoundry">Powered by <a href="http://www.zoundryraven.com" class="poweredbyzoundry_link" rel="external" target="_blank">Zoundry Raven</a></p>
+        <div> <div><span style="font-family:宋体;color:#800080;font-size:.75em;"><span style="font-family:宋体;color:#800080;font-size:.75em;">以下全文转载自东方和尚的集智群邮件，版权归东方和尚所有</span></span></div> <div><span style="font-family:宋体;color:#800080;font-size:.75em;">贫僧按：现在我发现，内功练到一定程度，每天都要做些事情，比如写一点程序、做一点翻译这样的劳动，才能痛快。不用担心精神，一旦丹田充满，精神是越用越足的。下面这篇文章是Google的Director of Research，Peter Norvig写的关于Watson的评论，谈到离思考机器还有多远距离。原文见：</span></div> <div><span style="font-family:宋体;"><a href="http://www.nypost.com/p/news/opinion/opedcolumnists/the_machine_age_tM7xPAv4pI4JslK0M1JtxI" target="_blank" rel="external"><span style="color:#800080;font-size:.6em;">http://www.nypost.com/p/news/opinion/opedcolumnists/the_machine_age_tM7xPAv4pI4JslK0M1JtxI</span></a></span></div> <div><span style="font-family:宋体;color:#800080;font-size:.75em;">我没有查此人简历，盖想必能做Google的研究负责人，肯定是大牛，换了你我估计也做不了。</span></div> <div><span style="font-family:宋体;color:#800080;font-size:.75em;"><strong><span style="text-decoration:underline;">1、整体看来，AI处于何种状态？</span></strong></span></div> <div><span style="font-family:宋体;color:#800080;font-size:.75em;">作者做了一个对比，即把AI和登月计划与癌症研究做比较。40年前，尼克松宣布要"征服癌症"；50年前，肯尼迪宣布要征服月球。相比之下，月球计划虽然实现的很迅速，但是人类此后却没有走得更远。而癌症虽然没有被征服，但是人类对于生命的研究，却不断地取得进步，各种疾病的死亡率，都在下降，如艾滋病，从过去的恐怖绝症，已经成为了一种慢性病。</span></div> <div><span style="color:#800080;"><span style="font-family:宋体;font-size:.75em;">作者认为，AI是后者，虽然没有突飞猛进的发展，却实实在在地提高。从垃圾邮件的删除，语音录入文字，IBM的深蓝、Waton等等，都证明了AI的不断进步。他又举了很多例子：</span> <span style="font-family:宋体;font-size:.75em;">Google的翻译系统，可以在58种语言中来回翻译。Google的自走车，自己会在马路上开（撞死人怎么办？）等等。</span></span></div> <div><span style="font-family:宋体;color:#800080;font-size:.75em;"><strong><span style="text-decoration:underline;">2、通过这些成就得到的启发</span></strong></span></div> <div><span style="font-family:宋体;color:#800080;font-size:.75em;"><strong>原来觉得难的事情，可以很容易</strong>，比如一开始AI是设计用来下棋、算积分的。结果发现这些人类觉得很困难的工作，对于计算机来反而很容易。因为以一套确定规则可以蛮力完成。反过来，<strong>人觉得容易的事情，对计算机却很难</strong>，比如婴儿可以区别几百件物件，看一眼就能认出来，计算机的视觉识别却没有到这个阶段。</span></div> <div><span style="font-family:宋体;color:#800080;font-size:.75em;"><strong>处理不确定性，要比逻辑上的精确性要重要</strong>。计算机擅长的是一步步的严格推理，这当然也是解决问题的重要组成。但是困难的是怎么样处理不确定因素？又怎样从很多可能性中间挑一个出来？80年代末，AI的基本工具从逻辑转向了概率，在概率应用方面的成绩，也是近年来AI的主要进步之一。</span></div> <div><span style="font-family:宋体;color:#800080;font-size:.75em;"><strong>学习比知识更加重要</strong>。60、70年代有所谓专家系统，就是通过总结专家的知识建立的知识库。把专家的知识变成计算机的逻辑规则。但因为实际上总结大量资料的困难，专家未必能够讲清楚自己的思考过程，以及遇到没有设想到的情况等等，这种系统的效果往往不如人意。</span></div> <div><span style="font-family:宋体;"><span style="color:#800080;font-size:.75em;"><strong>现在的计算机系统更加侧重于从实际的例子中间来学习</strong>，把初始状态的特征、不同解决办法以及它们的得分输入计算机，计算机可以用程序来学习类似情况下应该组合使用怎么样的方法。这种思路的变化是很重要的，因为它更加有适应性，收集实际的例子比请专家来讲故事也容易得多。</span></span></div> <div><span style="font-family:宋体;"><span style="color:#800080;font-size:.75em;">另一个AI的转变是<strong>从企图取代人变成增强人的能力</strong>。现在计算机到处都是，因此我们可以用它来帮助人们的日常工作，比如搜索引擎就用AI和其他技术，把大量网页变成信息的索引，你可以从中取得相关的知识。没有AI，靠人工是不可能做这样大量的索引归类工作的（贫僧觉得这点说的不错，AI的确有点用处）。所以计算机不会取代人，而是应该相互补充。</span></span></div> <div><span style="font-family:宋体;color:#800080;font-size:.75em;"><strong><span style="text-decoration:underline;">3、一个实例：翻译</span></strong></span></div> <div><span style="font-family:宋体;"><span style="color:#800080;font-size:.75em;">他这里举了用贝叶斯统计实现翻译的具体例子。旨在表明，用意想不到的技术，如统计计算词汇的相关出现频率而不是语法分析，翻译的效果可以比语法和语义更好。关于这点，请参阅吴军的系列文章， <a href="http://www.sowang.com/bbs/viewthread.php?tid=6595" target="_blank" rel="external"><span style="font-size:.9em;">http://www.sowang.com/bbs/viewthread.php?tid=6595</span></a></span></span></div> <div><span style="font-family:宋体;"><span style="color:#800080;font-size:.75em;">这里的关键就是从实例学习，当实例的数量达到相当大的时候，系统的表现会判若两人，从很差变得非常好。婴儿当然也是从实例而不是语法来学习语言的。Google可以翻译58种语言，但是这中间很多语言，Google的工程师根本不懂，也不需要懂。（记得中文屋的例子吗？现在Google实际证明了这一点，单个部件不懂中文，但是整体完全可以懂中文）</span></span></div> <div><span style="font-family:宋体;color:#800080;font-size:.75em;"><strong><span style="text-decoration:underline;">4、未来趋势</span></strong></span></div> <div><span style="font-family:宋体;color:#800080;font-size:.75em;">计算机能不能思考？这本身就是一个循环定义的问题，因为这个问题取决于你怎样定义think这个词，而这又是随着文化和时代变化的。</span></div> <div><span style="font-family:宋体;color:#800080;font-size:.75em;">与其问计算机能否思考，不如问人类是怎样看待自己的思考能力。（贫僧认为，与其关注这个属于未来的问题，不如关注计算机是怎么样改变人类社会的。）</span></div> </div>
 
       
 
@@ -416,15 +416,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Jeopardy</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">waston</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Wolfram|Alpha</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Google</a>
         		</li>
       		
 		</ul>
@@ -434,7 +430,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2011/02/20/zzjeopardy-ibm-and-wolframalpha/">展开全文 >></a>
+          <a class="article-more-a" href="/2011/02/22/swarmagents_ai-摘译：机器世纪/">展开全文 >></a>
         </p>
       
 
@@ -517,6 +513,100 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2011/02/20/又寂寞又美好/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-zzjeopardy-ibm-and-wolframalpha" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/02/20/zzjeopardy-ibm-and-wolframalpha/">[zz]Jeopardy, IBM, and Wolfram|Alpha</a>
+    </h1>
+  
+
+        
+        <a href="/2011/02/20/zzjeopardy-ibm-and-wolframalpha/" class="archive-article-date">
+  	<time datetime="2011-02-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2011-02-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>原文转载stephen wolfram的文章</p> <p>原文地址<a href="http://blog.stephenwolfram.com/2011/01/jeopardy-ibm-and-wolframalpha/" target="_blank" rel="external">http://blog.stephenwolfram.com/2011/01/jeopardy-ibm-and-wolframalpha/</a></p> <p>当是情人节大战还没有开始</p> <table class="post_head"> <tbody> <tr> <td> <h1><a href="http://blog.stephenwolfram.com/2011/01/jeopardy-ibm-and-wolframalpha/" rel="external" title="Permanent Link to Jeopardy, IBM, and Wolfram|Alpha" target="_blank"><em>Jeopardy</em>, IBM, and Wolfram|Alpha</a></h1> <div class="date">January 26, 2011</div> </td> </tr> </tbody> </table> <div class="single_post_content"> <p>About a month before <a href="http://wolframalpha.com/" target="_blank" rel="external">Wolfram|Alpha</a> launched, I was on the phone with a group from IBM, talking about our vision for computable knowledge in Wolfram|Alpha. A few weeks later, the group announced that they were going to use what they had done in natural language processing to try to make a system to compete on <em>Jeopardy</em>.</p> <p>I thought it was a brilliant way to showcase their work-and IBM's capabilities in general. And now, a year and a half later, IBM has built an impressive level of anticipation for their upcoming <em>Jeopardy</em> television event. Whatever happens (and IBM's system certainly should be able to win), one thing is clear: what IBM is doing will have an important effect in changing peoples' expectations for how they might be able to interact with computers.</p> <p>When Wolfram|Alpha was launched, people at first kept on referring to it as a "new search engine"-because basically keyword search was the only model they had for how they might find information on a large scale. But IBM's project gives a terrific example of another model: question answering. And when people internalize this model, they'll be coming a lot closer to realizing what's possible with what we're building in Wolfram|Alpha.</p> <p>So what really is the relation between Wolfram|Alpha and the IBM <em>Jeopardy</em> project?</p> <div style="position:relative;height:525px;"> <div style="position:absolute;top:0;left:-50px;"><img src="http://jackeylu.files.wordpress.com/2011/02/watsonalpha.jpg" style="width:600px;display:inline;height:525px;" title="IBM Watson and Wolfram|Alpha" height="525" width="600" alt="IBM Watson and Wolfram|Alpha"></div> </div> <p><span id="more-791"></span></p> <p>IBM's basic approach has a long history, with a lineage in the field of information retrieval that is in many ways shared with search engines. The essential idea is to start with textual documents, and then to build a system to statistically match questions that are asked to answers that are represented in the documents. (The first step is to search for textual matches to a question-using thesaurus-like and other linguistic transformations. The harder work is then to take the list of potential answers, use a diversity of different methods to score them, and finally combine these scores to choose a top answer.)</p> <p>Early versions of this approach go back nearly 50 years, to the first phase of artificial intelligence research. And incremental progress has been made-notably as tracked for the past 20 years in the annual TREC (Text Retrieval Conference) question answering competition. IBM's <em>Jeopardy</em> system is very much in this tradition-though with more sophisticated systems engineering, and with special features aimed at the particular (complex) task of competing on <em>Jeopardy</em>.</p> <p>Wolfram|Alpha is a completely different kind of thing-something much more radical, based on a quite different paradigm. The key point is that Wolfram|Alpha is not dealing with documents, or anything derived from them. Instead, it is dealing directly with raw, precise, computable knowledge. And what's inside it is not statistical representations of text, but actual representations of knowledge.</p> <p>The input to Wolfram|Alpha can be a question in natural language. But what Wolfram|Alpha does is to convert this natural language into a precise computable internal form. And then it takes this form, and uses its computable knowledge to compute an answer to the question.</p> <p>There's a lot of technology and new ideas that are required to make this work. And I must say that when I started out developing Wolfram|Alpha I wasn't at all sure it was going to be possible. But after years of hard work-and some breakthroughs-I'm happy to say it's turned out really well. And Wolfram|Alpha is now successfully answering millions of questions on the web and elsewhere about a huge variety of different topics every day.</p> <p>And in a sense Wolfram|Alpha fully understands every answer it gives. It's not somehow serving up pieces of statistical matches to documents it was fed. It's actually computing its answers, based on knowledge that it has. And most of the answers it computes are completely new: they've never been computed or written down before.</p> <p>In IBM's approach, the main part of the work goes into tuning the statistical matching procedures that are used-together in the case of <em>Jeopardy</em> with adding a collection of special rules to handle particular situations that come up.</p> <p>In Wolfram|Alpha most of the work is just adding computable knowledge to the system. Curating data, hooking up real-time feeds, injecting domain-specific expertise, implementing computational algorithms-and building up our kind of generalized grammar that captures the natural language used for queries.</p> <p>In developing Wolfram|Alpha, we've been steadily building out different areas of knowledge, concentrating first on ones that address fairly short questions that people ask, and that are important in practice. We're almost exactly at the opposite end of things from what's needed in <em>Jeopardy</em>-and from the direct path that IBM has taken to that goal. There's no doubt that in time Wolfram|Alpha will be able to do things like the <em>Jeopardy</em> task-though in an utterly different way from the IBM system-but that's not what it's built for today.</p> <p>(It's an interesting metric that Wolfram|Alpha currently knows about three quarters of the entities that arise in <em>Jeopardy</em> questions-which I don't consider too shabby, given that this is pretty far from anything we've actually set up Wolfram|Alpha to do.)</p> <p>In the last couple of weeks, though, I've gotten curious about what's actually involved in doing the <em>Jeopardy</em> task. Forget Wolfram|Alpha entirely for a moment. What's the most obvious way to try doing <em>Jeopardy</em>?</p> <p>What about just using a plain old search engine? And just feeding <em>Jeopardy</em> clues into it, and seeing what documents get matched. Well, just for fun, we tried that. We sampled randomly from the 200,000 or so <em>Jeopardy</em> clues that have been aired. Then we took each clue and fed it as input (without quotes) to a search engine. Then we looked at the search engine result page, and (a) saw how frequently the correct <em>Jeopardy</em> answer appeared somewhere in the titles or text snippets on the page, and (b) saw how frequently it appeared in the top document returned by the search engine. (More details are given in this <a href="http://blog.stephenwolfram.com/data/uploads/2011/01/Jeopardy_methodology.nb" target="_blank" rel="external"><em>Mathematica</em> notebook</a> [download <em>Player</em> <a href="http://www.wolfram.com/products/player/" target="_blank" rel="external">here</a>]. Obviously we excluded sites that are specifically about <em>Jeopardy</em>!)</p> <p><img src="http://jackeylu.files.wordpress.com/2011/02/answer_diagram.gif" style="width:505px;display:inline;height:270px;" title="Search engine comparisons" height="270" width="505" alt="Search engine comparisons" class="alignnone size-full wp-image-902"></p> <p>If nothing else, this gives us pretty interesting information about the modern search engine landscape. In particular, it shows us that the more mature search systems are getting to be remarkably similar in their raw performance-so that other aspects of user experience (like <a href="http://products.wolframalpha.com/business/" target="_blank" rel="external">Wolfram|Alpha integration</a>!) are likely to become progressively more important.</p> <p>But in terms of <em>Jeopardy</em>, what we see is that just using a plain old search engine gets surprisingly far. Of course, the approach here isn't really solving the complete <em>Jeopardy</em> problem: it's only giving pages on which the answer should appear, not giving specific actual answers. One can try various simple strategies for going further. Like getting the answer from the title of the first hit-which with the top search engines actually does succeed about 20% of the time.</p> <p>But ultimately it's clear that one's going to have to do more work to actually compete on <em>Jeopardy</em>-which is what IBM has done.</p> <p>So what's the broader significance of the <em>Jeopardy</em> project? It's yet another example of how something that seems like artificial intelligence can be achieved with a system that's in a sense "just doing computation" (and as such, it can be viewed as yet another piece of evidence for the general <a href="http://www.wolframscience.com/nksonline/chapter-12" target="_blank" rel="external">Principle of Computational Equivalence</a> that's emerged from my work in science).</p> <p>But at a more practical level, it's related to an activity that has been central to IBM's business throughout its history: handling internal data of corporations and other organizations.</p> <p>There are typically two general kinds of corporate data: structured (often numerical, and, in the future, increasingly acquired automatically) and unstructured (often textual or image-based). The IBM <em>Jeopardy</em> approach has to do with answering questions from unstructured textual data-with such potential applications as mining medical documents or patents, or doing ediscovery in litigation. It's only rather recently that even search engine methods have become widely used for these kinds of tasks-and with its <em>Jeopardy</em> project approach IBM joins a spectrum of companies trying to go further using natural-language-processing methods.</p> <p>When it comes to structured corporate data, the <em>Jeopardy</em> project approach is not what's relevant. And instead here there's a large industry based on traditional business intelligence and data mining methods-that in effect allow one to investigate structured data in structured ways.</p> <p>And it's in this area that there's a particularly obvious breakthrough made possible by the technology of Wolfram|Alpha: being able for the first time to automatically investigate structured data in completely free-form unstructured ways. One asks a question in natural language, and a custom version of Wolfram|Alpha built from particular corporate data can use its computational knowledge and algorithms to compute an answer based on the data-and in fact generate a whole report about the answer.</p> <p>So what kind of synergy could there be between Wolfram|Alpha and IBM's <em>Jeopardy</em> approach? It didn't happen this time around, but if there's a Watson 2.0, it should be set up to be able to call the <a href="http://products.wolframalpha.com/api" target="_blank" rel="external">Wolfram|Alpha API</a>. IBM apparently already uses a certain amount of structured data and rules in, for example, scoring candidate answers. But what we've found is that even just in natural language processing, there's much more that can be done if one has access to deep broad computational knowledge at every stage. And when it comes to actually answering many kinds of questions, one needs the kind of ability that Wolfram|Alpha has to compute things.</p> <p>On the other side, in terms of data in Wolfram|Alpha, we mostly concentrate on definitive structured sources. But sometimes there's no choice but to try to extract structured data from unstructured textual sources. In our experience, this is always an unreliable process (achieving at most perhaps 80% correctness)-and so far we mostly use it only to "prime the pump" for later expert curation. But perhaps with something like IBM's <em>Jeopardy</em> approach it'll be possible to get a good supply of probabilistic candidate data answers-that can themselves be used as fodder for the whole Wolfram|Alpha computational knowledge engine system.</p> <p>It'll be interesting to see what the future holds for all of this. But for now, I shall simply look forward to IBM's appearance on <em>Jeopardy</em>.</p> <p>IBM has had a long and distinguished history of important R&amp;D-something a disappointingly small number of companies can say today. I have had some good friends at IBM Research (sadly, not all still alive), and IBM as a company has much to be admired. It's great to see IBM putting on such an impressive show, in an area that's so close to my own longstanding interests.</p> <p>Good luck on <em>Jeopardy</em>! I'll be rooting for you, Watson.</p> </div> <p class="poweredbyzoundry">Powered by <a href="http://www.zoundryraven.com" class="poweredbyzoundry_link" rel="external" target="_blank">Zoundry Raven</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">technology</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">AI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IBM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Jeopardy</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">waston</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Wolfram|Alpha</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2011/02/20/zzjeopardy-ibm-and-wolframalpha/">展开全文 >></a>
         </p>
       
 
@@ -928,80 +1018,6 @@
 
 
   
-    <article id="post-alsa-soc上消除通话侧音" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2010/09/05/alsa-soc上消除通话侧音/">&gt;Alsa SoC上消除通话侧音</a>
-    </h1>
-  
-
-        
-        <a href="/2010/09/05/alsa-soc上消除通话侧音/" class="archive-article-date">
-  	<time datetime="2010-09-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2010-09-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        &gt;<div>&nbsp;</div>  <div>  <div style="color:#000;">工作记录：<br>开发的某语音软件运行在开发板上，存在一个问题：<u><b>自己的声音从microphone进去后会从扬声器Speaker里面出来，这在通 讯术语中叫做侧音</b></u>。<br>其实我们自己家里用的电话也是有侧音的，但是侧音很小，也是被保留下的，可以增强语音通话的质量；如果侧音过强，则会严重损伤通话效果。为此，我 们需要减小侧音。<br>具体的工作是实验室一个师妹进行的，我把其中一些关键内容记录下来，以免忘记，也供更多的为此困扰的人参考。<br>我们解决问题的过程是：<br>  <ol>  <li>自己的声音从Speaker出来的现象，定位其学术、科技名为：<b>侧音</b>（英文叫做<b>Sidetone</b>）。这 是成功的一半。   </li><li>对于技术问题，本人一般用Google多，发现侧音在中文中出现都是一些概念介绍，偶尔有一些介绍消减方法也多少硬件设计，这对我们 解决问题时带来了不小的疑惑，我们怀疑还能否用软件的方式解决这个问题；   </li><li>黔驴技穷后，我们使用了关键词sidetone alsa，然后发现在alsa for embedded Linux中有专门的soc定制，里面提到过sidetone，心里顿时感觉前途一片光明；   </li><li>我们团队就合作分工阅读alsa的soc framework、driver source、alsa-utils等资料和源码。这 时候我再次感谢张焕国老师在我们本科上信息安全课程时提到的：最重要的课程是语数英。找资料还是得找英文原著，有时候甚至在看资料的时候 纠结：为什么自己不会法文、德文。。。还好那些体系的文字翻译是比较成功的。   </li><li>我们最后发现，我们所使用的开发板的音频芯片AD/DA是wm9713，其驱动里面带有sidetone的控制。通过alsa- utils里面的amixer工具，可以和阅读wm9713驱动一样，发现该芯片本身提供了sidetone控制接口。Sidetone Mux的Setereo、Mic 1、Mic 2、 Mute四种方式。经过一定的测试后发现确实有效。   </li><li>最后，我们通过参考amixer的源码，为此问题画上了一个句号。 </li></ol>总结的话就是，要找清楚对象，明白要解决的问题是什么。这里我们为此问题经历过多次折腾，前面两次都没有成功，最后一次也就是第三次才成功。这里 面关键的原因是，前两次不知道这问题叫做侧音！第三次是一个要好的工程师朋友看到现象后顺口告诉我们这是侧音 。<br>这也说明隔行是如同隔山一样。<br><br>Mark 之，虽然很可能到本人见马克思的时候都用不上了。<br></div></div>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Uncategorized</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2010/09/05/alsa-soc上消除通话侧音/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
@@ -1127,11 +1143,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Chrome</a>
+                <a href="javascript:void(0)" class="js-tag color1">Chrome 多线程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Chrome 多线程</a>
+                <a href="javascript:void(0)" class="js-tag color2">Chrome</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1144,14 +1160,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">slideshare</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jimmy，漫画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">情感</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1175,7 +1183,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">GNU/Linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">jimmy，漫画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">情感</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1183,11 +1195,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Ethics and Responsibilities</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">research</a>
+                <a href="javascript:void(0)" class="js-tag color5">GNU/Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1204,6 +1212,14 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Ethics and Responsibilities</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">research</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1455,14 +1471,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">software list</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">list</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
@@ -1475,11 +1483,23 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">software list</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">list</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jekyll</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">tabobao source</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1491,19 +1511,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">json</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">programming</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Alternative operator</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1516,6 +1528,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">demangling</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Alternative operator</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1551,11 +1567,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">career</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">graph</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">career</a>
+                <a href="javascript:void(0)" class="js-tag color3">optimization</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1564,10 +1584,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">self active</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">optimization</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1623,14 +1639,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">tool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">证券</a>
               </li>
              
@@ -1640,6 +1648,30 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">诊股</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">tool</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">securities</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">quant</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">data</a>
               </li>
             
             <div class="clearfix"></div>

@@ -156,6 +156,99 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-stl-swap-trick" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/04/15/stl-swap-trick/">The Art of Readable Code</a>
+    </h1>
+  
+
+        
+        <a href="/2015/04/15/stl-swap-trick/" class="archive-article-date">
+  	<time datetime="2015-04-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-04-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Recorder</span> &#123;</span></div><div class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">float</span>&gt; data;</div><div class="line">	...</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Clear</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="comment">// Force vector to relinquish its memory (look up "STL swap trick")</span></div><div class="line">		<span class="built_in">vector</span>&lt;<span class="keyword">float</span>&gt;().swap(data);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">programming</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">readable code</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/programming//" class="article-tag-list-link color2">programming</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/programming/social-code//" class="article-tag-list-link color2">social code</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/04/15/stl-swap-trick/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-pitfall-with-initialization-list" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -804,19 +897,19 @@
 
 
   
-    <article id="post-software-list-for-fresh-ubuntu-os" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-macros-in-vim" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/12/28/software-list-for-fresh-ubuntu-os/">Software list for fresh ubuntu OS</a>
+      <a class="article-title" href="/2014/12/28/macros-in-vim/">macros in vim</a>
     </h1>
   
 
         
-        <a href="/2014/12/28/software-list-for-fresh-ubuntu-os/" class="archive-article-date">
+        <a href="/2014/12/28/macros-in-vim/" class="archive-article-date">
   	<time datetime="2014-12-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-12-28</time>
 </a>
         
@@ -824,8 +917,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>个人记录使用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install chromium-browser </div><div class="line">sudo apt-get install pepperflashplugin-nonfree</div><div class="line">sudo update-pepperflashplugin-nonfree --install</div><div class="line">sudo apt-get install git haskell-platform</div><div class="line">sudo apt-get install vim-gnome texlive </div><div class="line">sudo apt-get install rake</div><div class="line">sudo apt-get install jekyll</div></pre></td></tr></table></figure>
+        <p>The macro function in vi/vim is <code>recording</code>, see the <code>:help recording</code> for more information.</p>
+<p>An example of coment all the lines contained <code>abc1</code> or <code>abc2</code>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span> gg, to the first line</div><div class="line"><span class="number">2.</span> q1, recording a <span class="keyword">new</span> macro named <span class="string">`1`</span></div><div class="line"><span class="number">3.</span> /abc[<span class="number">12</span>], searching it</div><div class="line"><span class="number">4.</span> <span class="number">0</span>, go to the head <span class="keyword">of</span> found line</div><div class="line"><span class="number">5.</span> i, begin insert</div><div class="line">6. #, insert the comment character</div><div class="line"><span class="number">7.</span> &lt;ESC&gt;j, go to the next line</div><div class="line"><span class="number">8.</span> q. stop recording</div></pre></td></tr></table></figure>
+<p>when running the macro, we would like to set no row wrap scan to avoid more comments in one line.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">gg</div><div class="line">:set nowrapscan</div><div class="line"><span class="number">100</span>@<span class="number">1</span>, running the macro <span class="number">1</span> <span class="number">100</span> times.</div></pre></td></tr></table></figure>
 
       
 
@@ -839,11 +935,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">software list</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vim</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">list</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">macro</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">recording</a>
         		</li>
       		
 		</ul>
@@ -855,11 +955,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/utility//" class="article-tag-list-link color3">utility</a>
+        			<a href="/categories/vim//" class="article-tag-list-link color4">vim</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/utility/ubuntu//" class="article-tag-list-link color2">ubuntu</a>
+        			<a href="/categories/vim/tips//" class="article-tag-list-link color5">tips</a>
         		</li>
       		
 		</ul>
@@ -868,7 +968,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2014/12/28/software-list-for-fresh-ubuntu-os/">展开全文 >></a>
+          <a class="article-more-a" href="/2014/12/28/macros-in-vim/">展开全文 >></a>
         </p>
       
 
@@ -1005,19 +1105,19 @@
 
 
   
-    <article id="post-macros-in-vim" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-software-list-for-fresh-ubuntu-os" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/12/28/macros-in-vim/">macros in vim</a>
+      <a class="article-title" href="/2014/12/28/software-list-for-fresh-ubuntu-os/">Software list for fresh ubuntu OS</a>
     </h1>
   
 
         
-        <a href="/2014/12/28/macros-in-vim/" class="archive-article-date">
+        <a href="/2014/12/28/software-list-for-fresh-ubuntu-os/" class="archive-article-date">
   	<time datetime="2014-12-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-12-28</time>
 </a>
         
@@ -1025,11 +1125,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>The macro function in vi/vim is <code>recording</code>, see the <code>:help recording</code> for more information.</p>
-<p>An example of coment all the lines contained <code>abc1</code> or <code>abc2</code>.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span> gg, to the first line</div><div class="line"><span class="number">2.</span> q1, recording a <span class="keyword">new</span> macro named <span class="string">`1`</span></div><div class="line"><span class="number">3.</span> /abc[<span class="number">12</span>], searching it</div><div class="line"><span class="number">4.</span> <span class="number">0</span>, go to the head <span class="keyword">of</span> found line</div><div class="line"><span class="number">5.</span> i, begin insert</div><div class="line">6. #, insert the comment character</div><div class="line"><span class="number">7.</span> &lt;ESC&gt;j, go to the next line</div><div class="line"><span class="number">8.</span> q. stop recording</div></pre></td></tr></table></figure>
-<p>when running the macro, we would like to set no row wrap scan to avoid more comments in one line.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">gg</div><div class="line">:set nowrapscan</div><div class="line"><span class="number">100</span>@<span class="number">1</span>, running the macro <span class="number">1</span> <span class="number">100</span> times.</div></pre></td></tr></table></figure>
+        <p>个人记录使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install chromium-browser </div><div class="line">sudo apt-get install pepperflashplugin-nonfree</div><div class="line">sudo update-pepperflashplugin-nonfree --install</div><div class="line">sudo apt-get install git haskell-platform</div><div class="line">sudo apt-get install vim-gnome texlive </div><div class="line">sudo apt-get install rake</div><div class="line">sudo apt-get install jekyll</div></pre></td></tr></table></figure>
 
       
 
@@ -1043,15 +1140,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vim</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">software list</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">macro</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">recording</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">list</a>
         		</li>
       		
 		</ul>
@@ -1063,11 +1156,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/vim//" class="article-tag-list-link color4">vim</a>
+        			<a href="/categories/utility//" class="article-tag-list-link color3">utility</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/vim/tips//" class="article-tag-list-link color5">tips</a>
+        			<a href="/categories/utility/ubuntu//" class="article-tag-list-link color2">ubuntu</a>
         		</li>
       		
 		</ul>
@@ -1076,111 +1169,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2014/12/28/macros-in-vim/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-where-are-the-anxieties-of-chinese-people-come-from" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/04/20/where-are-the-anxieties-of-chinese-people-come-from/">中国人的焦虑从那里来？——茅于轼 </a>
-    </h1>
-  
-
-        
-        <a href="/2014/04/20/where-are-the-anxieties-of-chinese-people-come-from/" class="archive-article-date">
-  	<time datetime="2014-04-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-04-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这是一本经济学家矛于轼日常思考短文的合集，主要针对的是中国社会现象和中国不同财富、权利阶层的忧虑思考。<br>矛于轼是2012年“米尔顿-弗里德曼自由奖”得主，该书由群言出版社在2013年首次出版。</p>
-<p>个人觉得整本书中关键词就是“公平 vs 效率”，“人权/物权”，“劳动和财富的定义”，“市场经济”等等。给我的启迪主要是面对国内的现象，要多从经济发展历史、人性上进行多角度分析，才不容易人云亦云。</p>
-<p>光靠公平或者说平均财富是没有饭吃的，一个社会的基础还是财富的生产。人性本质上还是自私的，所以平均没有好日子过。但是光有财富的生产而缺乏公平，社会又稳定不了。特别是穷二代的改变自身，需要有更公平的机会来实现迈入富人阶级。</p>
-<p>富人的财富也有很多是合法所得，有时候要鼓励富人合法利用自身积累的财富进行更高效率的资产生产。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">reading</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">thingking</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">economy</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/reading-report//" class="article-tag-list-link color5">reading report</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/reading-report/economy//" class="article-tag-list-link color3">economy</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/reading-report/economy/socail//" class="article-tag-list-link color2">socail</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2014/04/20/where-are-the-anxieties-of-chinese-people-come-from/">展开全文 >></a>
+          <a class="article-more-a" href="/2014/12/28/software-list-for-fresh-ubuntu-os/">展开全文 >></a>
         </p>
       
 
@@ -1335,11 +1324,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Chrome</a>
+                <a href="javascript:void(0)" class="js-tag color1">Chrome 多线程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Chrome 多线程</a>
+                <a href="javascript:void(0)" class="js-tag color2">Chrome</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1352,14 +1341,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">slideshare</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jimmy，漫画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">情感</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1383,7 +1364,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">GNU/Linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">jimmy，漫画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">情感</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1391,11 +1376,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Ethics and Responsibilities</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">research</a>
+                <a href="javascript:void(0)" class="js-tag color5">GNU/Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1412,6 +1393,14 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Ethics and Responsibilities</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">research</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1663,14 +1652,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">software list</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">list</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
@@ -1683,11 +1664,23 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">software list</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">list</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jekyll</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">tabobao source</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1699,19 +1692,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">json</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">programming</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Alternative operator</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1724,6 +1709,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">demangling</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Alternative operator</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1759,11 +1748,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">career</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">graph</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">career</a>
+                <a href="javascript:void(0)" class="js-tag color3">optimization</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1772,10 +1765,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">self active</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">optimization</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1831,14 +1820,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">tool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">证券</a>
               </li>
              
@@ -1848,6 +1829,30 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">诊股</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">tool</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">securities</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">quant</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">data</a>
               </li>
             
             <div class="clearfix"></div>

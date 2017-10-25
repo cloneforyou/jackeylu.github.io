@@ -156,6 +156,101 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-tushare-concepts-api" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/25/tushare-concepts-api/">TuShare股票分类API数据滞后明显，应用场景较为受限</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/25/tushare-concepts-api/" class="archive-article-date">
+  	<time datetime="2017-10-25T04:27:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p><a href="http://tushare.org/" target="_blank" rel="external">TuShare</a>是一个免费、开源的python财经数据接口包。主要实现对股票等金融数据从数据采集、清洗加工 到 数据存储的过程，能够为金融分析人员提供快速、整洁、和多样的便于分析的数据，为他们在数据获取方面极大地减轻工作量，使他们更加专注于策略和模型的研究与实现上。</p>
+<p>TuShare 提供了<a href="http://tushare.org/classifying.html" target="_blank" rel="external">股票分类数据数据接口</a>，可以获得行业板块、概念板块、以及中小板等分类方法。</p>
+<h1 id="Application"><a href="#Application" class="headerlink" title="Application"></a>Application</h1><p>市面上的板块、概念分类很多财经/证券软件都有，有些是自营自管理，有些是购买如万得、聚源等提供的数据，后者维护更新的工作就由数据提供方来维护了。<br>开始使用TuShare时，我想着能否使用TuShare的分类结果，因为其来自于新浪财经（见API中的说明）。</p>
+<p>我应用Tushare 0.9.9版本进行了概念板块的测试，<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">11</span>]: <span class="keyword">import</span> tushare <span class="keyword">as</span> ts</div><div class="line">In [<span class="number">12</span>]: concepts = ts.get_concept_classified()</div><div class="line">[Getting data:]<span class="comment">#############################################################################################################################################################################################################################################################################################################################################################</span></div><div class="line">In [<span class="number">13</span>]: concepts.head()</div><div class="line">Out[<span class="number">13</span>]:</div><div class="line">     code  name c_name</div><div class="line"><span class="number">0</span>  <span class="number">600050</span>  中国联通   <span class="number">5</span>G概念</div><div class="line"><span class="number">1</span>  <span class="number">600105</span>  永鼎股份   <span class="number">5</span>G概念</div><div class="line"><span class="number">2</span>  <span class="number">600198</span>  大唐电信   <span class="number">5</span>G概念</div><div class="line"><span class="number">3</span>  <span class="number">600289</span>  亿阳信通   <span class="number">5</span>G概念</div><div class="line"><span class="number">4</span>  <span class="number">600345</span>  长江通信   <span class="number">5</span>G概念</div><div class="line"></div><div class="line">In [<span class="number">14</span>]: concepts[concepts.code == <span class="string">"600050"</span>]</div><div class="line">Out[<span class="number">14</span>]:</div><div class="line">        code  name c_name</div><div class="line"><span class="number">0</span>     <span class="number">600050</span>  中国联通   <span class="number">5</span>G概念</div><div class="line"><span class="number">1550</span>  <span class="number">600050</span>  中国联通   融资融券</div><div class="line"><span class="number">1633</span>  <span class="number">600050</span>  中国联通   三网融合</div><div class="line"><span class="number">3050</span>  <span class="number">600050</span>  中国联通   苹果概念</div><div class="line"><span class="number">3383</span>  <span class="number">600050</span>  中国联通   <span class="number">4</span>G概念</div><div class="line"></div><div class="line">In [<span class="number">15</span>]: concepts[concepts.code == <span class="string">"300402"</span>]</div><div class="line">Out[<span class="number">15</span>]:</div><div class="line">Empty DataFrame</div><div class="line">Columns: [code, name, c_name]</div><div class="line">Index: []</div><div class="line"></div><div class="line">In [<span class="number">16</span>]: concepts[concepts.code == <span class="string">"002901"</span>]</div><div class="line">Out[<span class="number">16</span>]:</div><div class="line">Empty DataFrame</div><div class="line">Columns: [code, name, c_name]</div><div class="line">Index: []</div><div class="line"></div><div class="line">In [<span class="number">17</span>]: concepts[concepts.code == <span class="string">"002889"</span>]</div><div class="line">Out[<span class="number">17</span>]:</div><div class="line">Empty DataFrame</div><div class="line">Columns: [code, name, c_name]</div><div class="line">Index: []</div><div class="line"></div><div class="line">In [<span class="number">18</span>]: concepts[concepts.code == <span class="string">"603648"</span>]</div><div class="line">Out[<span class="number">18</span>]:</div><div class="line">Empty DataFrame</div><div class="line">Columns: [code, name, c_name]</div><div class="line">Index: []</div><div class="line"></div><div class="line">In [<span class="number">19</span>]: concepts[concepts.code == <span class="string">"600822"</span>]</div><div class="line">Out[<span class="number">19</span>]:</div><div class="line">        code  name c_name</div><div class="line"><span class="number">1318</span>  <span class="number">600822</span>  上海物贸    含B股</div><div class="line"></div><div class="line">In [<span class="number">15</span>]: concepts[concepts.c_name == <span class="string">u"次新股"</span>]</div><div class="line">Out[<span class="number">15</span>]:</div><div class="line">        code  name c_name</div><div class="line"><span class="number">1072</span>  <span class="number">600908</span>  无锡银行    次新股</div><div class="line"><span class="number">1073</span>  <span class="number">600909</span>  华安证券    次新股</div><div class="line"><span class="number">1074</span>  <span class="number">600919</span>  江苏银行    次新股</div><div class="line"><span class="number">1075</span>  <span class="number">600926</span>  杭州银行    次新股</div><div class="line"><span class="number">1076</span>  <span class="number">600936</span>  广西广电    次新股</div><div class="line"><span class="number">1077</span>  <span class="number">600977</span>  中国电影    次新股</div><div class="line"><span class="number">1078</span>  <span class="number">600996</span>  贵广网络    次新股</div><div class="line"><span class="number">1079</span>  <span class="number">601020</span>  华钰矿业    次新股</div><div class="line"><span class="number">1080</span>  <span class="number">601127</span>  小康股份    次新股</div><div class="line"><span class="number">1081</span>  <span class="number">601128</span>  常熟银行    次新股</div><div class="line"><span class="number">1082</span>  <span class="number">601163</span>  三角轮胎    次新股</div><div class="line"><span class="number">1083</span>  <span class="number">601229</span>  上海银行    次新股</div><div class="line"><span class="number">1084</span>  <span class="number">601500</span>  通用股份    次新股</div><div class="line"><span class="number">1085</span>  <span class="number">601595</span>  上海电影    次新股</div><div class="line"><span class="number">1086</span>  <span class="number">601611</span>  中国核建    次新股</div><div class="line"><span class="number">1087</span>  <span class="number">601811</span>  新华文轩    次新股</div><div class="line"><span class="number">1088</span>  <span class="number">601882</span>  海天精工    次新股</div><div class="line"><span class="number">1089</span>  <span class="number">601900</span>  南方传媒    次新股</div><div class="line"><span class="number">1090</span>  <span class="number">601966</span>  玲珑轮胎    次新股</div><div class="line"><span class="number">1091</span>  <span class="number">601997</span>  贵阳银行    次新股</div><div class="line"><span class="number">1092</span>  <span class="number">603007</span>  花王股份    次新股</div><div class="line"><span class="number">1093</span>  <span class="number">603016</span>   新宏泰    次新股</div><div class="line"><span class="number">1094</span>  <span class="number">603027</span>  千禾味业    次新股</div><div class="line"><span class="number">1095</span>  <span class="number">603028</span>   赛福天    次新股</div><div class="line"><span class="number">1096</span>  <span class="number">603029</span>  天鹅股份    次新股</div><div class="line"><span class="number">1097</span>  <span class="number">603031</span>   安德利    次新股</div><div class="line"><span class="number">1098</span>  <span class="number">603033</span>  三维股份    次新股</div><div class="line"><span class="number">1099</span>  <span class="number">603036</span>  如通股份    次新股</div><div class="line"><span class="number">1100</span>  <span class="number">603058</span>  永吉股份    次新股</div><div class="line"><span class="number">1101</span>  <span class="number">603060</span>  国检集团    次新股</div><div class="line"><span class="meta">... </span>     ...   ...    ...</div><div class="line"><span class="number">1142</span>  <span class="number">603726</span>  朗迪集团    次新股</div><div class="line"><span class="number">1143</span>  <span class="number">603727</span>   博迈科    次新股</div><div class="line"><span class="number">1144</span>  <span class="number">603737</span>   三棵树    次新股</div><div class="line"><span class="number">1145</span>  <span class="number">603738</span>  泰晶科技    次新股</div><div class="line"><span class="number">1146</span>  <span class="number">603777</span>   来伊份    次新股</div><div class="line"><span class="number">1147</span>  <span class="number">603778</span>  乾景园林    次新股</div><div class="line"><span class="number">1148</span>  <span class="number">603779</span>  威龙股份    次新股</div><div class="line"><span class="number">1149</span>  <span class="number">603798</span>   康普顿    次新股</div><div class="line"><span class="number">1150</span>  <span class="number">603816</span>  顾家家居    次新股</div><div class="line"><span class="number">1151</span>  <span class="number">603819</span>  神力股份    次新股</div><div class="line"><span class="number">1152</span>  <span class="number">603822</span>  嘉澳环保    次新股</div><div class="line"><span class="number">1153</span>  <span class="number">603823</span>   百合花    次新股</div><div class="line"><span class="number">1154</span>  <span class="number">603843</span>  正平股份    次新股</div><div class="line"><span class="number">1155</span>  <span class="number">603858</span>  步长制药    次新股</div><div class="line"><span class="number">1156</span>  <span class="number">603859</span>  能科股份    次新股</div><div class="line"><span class="number">1157</span>  <span class="number">603861</span>  白云电器    次新股</div><div class="line"><span class="number">1158</span>  <span class="number">603868</span>  飞科电器    次新股</div><div class="line"><span class="number">1159</span>  <span class="number">603878</span>  武进不锈    次新股</div><div class="line"><span class="number">1160</span>  <span class="number">603887</span>  城地股份    次新股</div><div class="line"><span class="number">1161</span>  <span class="number">603888</span>   新华网    次新股</div><div class="line"><span class="number">1162</span>  <span class="number">603900</span>  通灵珠宝    次新股</div><div class="line"><span class="number">1163</span>  <span class="number">603909</span>  合诚股份    次新股</div><div class="line"><span class="number">1164</span>  <span class="number">603919</span>   金徽酒    次新股</div><div class="line"><span class="number">1165</span>  <span class="number">603928</span>  兴业股份    次新股</div><div class="line"><span class="number">1166</span>  <span class="number">603958</span>  哈森股份    次新股</div><div class="line"><span class="number">1167</span>  <span class="number">603959</span>  百利科技    次新股</div><div class="line"><span class="number">1168</span>  <span class="number">603977</span>  国泰集团    次新股</div><div class="line"><span class="number">1169</span>  <span class="number">603986</span>  兆易创新    次新股</div><div class="line"><span class="number">1170</span>  <span class="number">603987</span>   康德莱    次新股</div><div class="line"><span class="number">1171</span>  <span class="number">603990</span>  麦迪科技    次新股</div><div class="line"></div><div class="line">[<span class="number">100</span> rows x <span class="number">3</span> columns]</div><div class="line"></div><div class="line">In [<span class="number">16</span>]: concepts[concepts.code == <span class="string">"603648"</span>]</div><div class="line">Out[<span class="number">16</span>]:</div><div class="line">Empty DataFrame</div><div class="line">Columns: [code, name, c_name]</div><div class="line">Index: []</div><div class="line"></div><div class="line">In [<span class="number">17</span>]: concepts[concepts.code == <span class="string">"畅联股份"</span>]</div><div class="line">Out[<span class="number">17</span>]:</div><div class="line">Empty DataFrame</div><div class="line">Columns: [code, name, c_name]</div><div class="line">Index: []</div><div class="line"></div><div class="line">In [<span class="number">18</span>]: concepts[concepts.name == <span class="string">"畅联股份"</span>]</div><div class="line">Out[<span class="number">18</span>]:</div><div class="line">Empty DataFrame</div><div class="line">Columns: [code, name, c_name]</div><div class="line">Index: []</div><div class="line"></div><div class="line">In [<span class="number">19</span>]: concepts[concepts.name == <span class="string">u"畅联股份"</span>]</div><div class="line">Out[<span class="number">19</span>]:</div><div class="line">Empty DataFrame</div><div class="line">Columns: [code, name, c_name]</div><div class="line">Index: []</div><div class="line"></div><div class="line">In [<span class="number">20</span>]: concepts[concepts.name == <span class="string">u"平安银行"</span>]</div><div class="line">Out[<span class="number">20</span>]:</div><div class="line">        code  name c_name</div><div class="line"><span class="number">9</span>     <span class="number">000001</span>  平安银行   外资背景</div><div class="line"><span class="number">857</span>   <span class="number">000001</span>  平安银行   本月解禁</div><div class="line"><span class="number">2736</span>  <span class="number">000001</span>  平安银行   社保重仓</div><div class="line"><span class="number">3619</span>  <span class="number">000001</span>  平安银行   券商重仓</div><div class="line"><span class="number">4230</span>  <span class="number">000001</span>  平安银行   基金重仓</div><div class="line"></div><div class="line">In [<span class="number">21</span>]: concepts[concepts.name == <span class="string">u"苏州恒久"</span>]</div><div class="line">Out[<span class="number">21</span>]:</div><div class="line">Empty DataFrame</div><div class="line">Columns: [code, name, c_name]</div><div class="line">Index: []</div><div class="line"></div><div class="line">In [<span class="number">22</span>]: industry = ts.get_industry_classified()</div><div class="line">[Getting data:]<span class="comment">#################################################</span></div><div class="line">In [<span class="number">23</span>]: industry.head()</div><div class="line">Out[<span class="number">23</span>]:</div><div class="line">     code  name c_name</div><div class="line"><span class="number">0</span>  <span class="number">600051</span>  宁波联合   综合行业</div><div class="line"><span class="number">1</span>  <span class="number">600209</span>  罗顿发展   综合行业</div><div class="line"><span class="number">2</span>  <span class="number">600212</span>  江泉实业   综合行业</div><div class="line"><span class="number">3</span>  <span class="number">600256</span>  广汇能源   综合行业</div><div class="line"><span class="number">4</span>  <span class="number">600576</span>  祥源文化   综合行业</div><div class="line"></div><div class="line">In [<span class="number">24</span>]: industry[industry.name == <span class="string">u"畅联股份"</span>]</div><div class="line">Out[<span class="number">24</span>]:</div><div class="line">        code  name c_name</div><div class="line"><span class="number">1277</span>  <span class="number">603648</span>  畅联股份    次新股</div><div class="line">In [<span class="number">25</span>]: industry.shape</div><div class="line">Out[<span class="number">25</span>]: (<span class="number">2394</span>, <span class="number">3</span>)</div></pre></td></tr></table></figure></p>
+<p>发现，</p>
+<ol>
+<li>Tushare有次新股的概念，但是数据滞后严重，例如次新股中没有“畅联股份”这样一只上市有一个月的次新股，而该股的所属板块和概念却没有。而同类软件，例如东方财富终端将其定义为“次新股、交运物流、上海板块、上海自贸、昨日触板”等板块和概念。<img src="/images/tushare-problem.png" alt="畅联股份-东方财富"></li>
+<li><code>get_industry_classified()</code>获得的行业分类中的股票数量也少的厉害，不确定是新浪源头上缺少数据，还是TuShare处理时丢失了数据。后者可能性会大一些，毕竟新浪财经是知名的门户，或者是TuShare使用的数据源头链接有问题。</li>
+</ol>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>尝试使用其他商业数据源。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">securities</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">quant</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/25/tushare-concepts-api/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-mongodb-operations" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1002,108 +1097,6 @@ to solve the `tty.c:1067: undefined reference to `__b64_ntop&apos;` error
 
 
   
-    <article id="post-flume-thrift-source-threads" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/06/flume-thrift-source-threads/">java.lang.OutOfMemoryError for flume Thrift Source.</a>
-    </h1>
-  
-
-        
-        <a href="/2015/09/06/flume-thrift-source-threads/" class="archive-article-date">
-  	<time datetime="2015-09-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="The-reason"><a href="#The-reason" class="headerlink" title="The reason."></a>The reason.</h1><p>If the conf file for flume use the thrift source, and the <code>threads</code><br>was not set, then the default <code>threads</code> would be the Integer.MAX_VALUE.</p>
-<p>But the implementation of thread pool <code>TThreadedSelectorServer</code> has some problem.</p>
-<p>In the source code of flume-ng-core,<br>the thread pool in  <code>flume-ng-core/src/main/java/org/apache/flume/source/ThriftSource.java</code><br>is as follow,<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> TServer <span class="title">getTThreadedSelectorServer</span><span class="params">()</span> </span>&#123;</div><div class="line">  ...</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (maxThreads == <span class="number">0</span>) &#123;</div><div class="line">      sourceService = Executors.newCachedThreadPool(threadFactory);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      sourceService = Executors.newFixedThreadPool(maxThreads, threadFactory);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    ...</div></pre></td></tr></table></figure></p>
-<p>and the configuration for <code>maxThreads</code> in <code>configure</code> is,<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">configure</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">   ...</div><div class="line"></div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">      maxThreads = context.getInteger(CONFIG_THREADS, <span class="number">0</span>);</div><div class="line">      maxThreads = (maxThreads &lt;= <span class="number">0</span>) ? Integer.MAX_VALUE : maxThreads;</div><div class="line">    &#125; <span class="keyword">catch</span> (NumberFormatException e) &#123;</div><div class="line">      logger.warn(<span class="string">"Thrift source\'s \"threads\" property must specify an "</span> +</div><div class="line">        <span class="string">"integer value: "</span> + context.getString(CONFIG_THREADS));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    ...</div></pre></td></tr></table></figure></p>
-<p>From these two codes, we can figure that, if the user didn’t set the <code>threads</code> parameter,<br>then, the <code>maxThreads</code> would be first set as 0, and then as it’s <code>&lt;=0</code>, it would be<br>set as Integer.maxThreads finally.<br>So the <code>sourceService</code> would be a <code>FixedThreadPool</code>, but the pool is too large that OutOfMemoryError<br>will occur.</p>
-<h1 id="How-to-solve-it"><a href="#How-to-solve-it" class="headerlink" title="How to solve it?"></a>How to solve it?</h1><p>To avoid it, you have to set the <code>threads</code> parameter by hand.<br>Or patch your code like the issue’s patch file in <a href="https://issues.apache.org/jira/browse/FLUME-2785" target="_blank" rel="external">https://issues.apache.org/jira/browse/FLUME-2785</a>.</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">flume</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">OutOfMemoryError</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/programming//" class="article-tag-list-link color2">programming</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/programming/open-source//" class="article-tag-list-link color2">open source</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/09/06/flume-thrift-source-threads/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1229,11 +1222,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Chrome</a>
+                <a href="javascript:void(0)" class="js-tag color1">Chrome 多线程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Chrome 多线程</a>
+                <a href="javascript:void(0)" class="js-tag color2">Chrome</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1246,14 +1239,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">slideshare</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jimmy，漫画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">情感</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1277,7 +1262,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">GNU/Linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">jimmy，漫画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">情感</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1285,11 +1274,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Ethics and Responsibilities</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">research</a>
+                <a href="javascript:void(0)" class="js-tag color5">GNU/Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1306,6 +1291,14 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Ethics and Responsibilities</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">research</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1557,14 +1550,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">software list</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">list</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
@@ -1577,11 +1562,23 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">software list</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">list</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jekyll</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">tabobao source</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1593,19 +1590,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">json</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">programming</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Alternative operator</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1618,6 +1607,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">demangling</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Alternative operator</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1653,11 +1646,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">career</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">graph</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">career</a>
+                <a href="javascript:void(0)" class="js-tag color3">optimization</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1666,10 +1663,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">self active</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">optimization</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1725,14 +1718,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">tool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">证券</a>
               </li>
              
@@ -1742,6 +1727,30 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">诊股</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">tool</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">securities</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">quant</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">data</a>
               </li>
             
             <div class="clearfix"></div>
