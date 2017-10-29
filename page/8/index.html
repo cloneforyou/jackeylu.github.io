@@ -156,6 +156,361 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-report-an-overview-of-aritficial-immune-systems" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/03/10/report-an-overview-of-aritficial-immune-systems/">Report An Overview of Aritficial Immune Systems</a>
+    </h1>
+  
+
+        
+        <a href="/2011/03/10/report-an-overview-of-aritficial-immune-systems/" class="archive-article-date">
+  	<time datetime="2011-03-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2011-03-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td><h3><a href="http://www.evernote.com/" target="_blank" rel="external">From Evernote:</a></h3></td>
+</tr>
+<tr>
+<td><h1>[Report] An Overview of Aritficial Immune Systems</h1> Clipped from: <a href="http://www.artificial-immune-systems.org/Courses/York/lecture1.pdf" target="_blank" rel="external">http://www.artificial-immune-systems.org/Courses/York/lecture1.pdf</a></td>
+</tr>
+</table>
+
+Short Lecture Course supplied by <a href="http://www-users.cs.york.ac.uk/~jtimmis/" target="_blank" rel="external">Jon Timmis</a> of the University of York, UK (if you use any slides here, please provide a suitable acknowledgment). These lectures form part of a longer course on swarm intelligence, and also assume some knowledge of evolutionary computation. Immune networks are not covered in these slides, though they are on the course. The reason why there are no slides on immune networks is the topic is worked through with the students on a white board by adapting a clonal selection algorithm into an immune network algorithm. Negative selection is also covered on the white board, rather than through lecture slides.
+
+<ul>
+<li>Lecture 1: An Overview of Artifcial Immune Systems <a href="http://www.artificial-immune-systems.org/Courses/York/lecture1.pdf" target="_blank" rel="external">Lecture PDF</a></li>
+<li>Lecture 2: An Introduction to Relevant Immunology <a href="http://www.artificial-immune-systems.org/Courses/York/lecture2.pdf" target="_blank" rel="external">Lecture PDF</a></li>
+<li>Lecture 3: Immune Modelling : A simple case study <a href="http://www.artificial-immune-systems.org/Courses/York/lecture3.pdf" target="_blank" rel="external">Lecture PDF</a></li>
+<li>Lecture 4: Engineering Artificial Immune Systems <a href="http://www.artificial-immune-systems.org/Courses/York/lecture4.pdf" target="_blank" rel="external">Lecture PDF</a></li>
+<li>Lecture 5: Using Clonal Selection for Supervised Learning <a href="http://www.artificial-immune-systems.org/Courses/York/lecture6.pdf" target="_blank" rel="external">Lecture PDF</a></li>
+<li>Lecture 6: On Artificial Immune Systems and Swarm Intelligence <a href="http://www.artificial-immune-systems.org/Courses/York/swarmimmunerobotics.pdf" target="_blank" rel="external">Lecture PDF</a></li>
+</ul>
+
+第一讲：人工免疫系统概述
+Slide的题目是
+Collaborative Bio-Inspired Algorithms
+Lecture 6: Artificial Immune Systems
+
+Prof Jon Timmis
+October 25, 2010
+
+<strong>collaborative</strong>
+adj. 合作的, 协力完成的
+
+Outline:
+
+<ol>
+<li>AIS Background
+
+<ol>
+<li>History</li>
+<li>Of interest because?</li>
+</ol>
+
+</li>
+<li>Thinking about AIS</li>
+<li>Basic Immunology
+
+<ol>
+<li>The Immune what?</li>
+</ol>
+
+</li>
+<li>Engineering Artificial Immune Systems</li>
+<li>Interdiscipinary?</li>
+</ol>
+
+What are AIS?
+一种定义：AIS是一种受理论免疫学（theoretical immunology）及实验观察得到的免疫功能、原理、模型启发的适应性系统，被应用于多种复杂问题领域。（该定义来自于2002发表的书）
+De Castro, L. &amp; Timmis, J. Artificial immune systems: a new computational intelligence approach Springer Verlag, 2002
+但是上述的定义已经不能“与时俱进”了，当前发生了一些变化。具体的将在本次lecture中提到。
+
+History
+
+<ul>
+<li>开创性论文——1986年，Farmer等人（J. Doyne Farmer and Norman H. Packard and Alan S. Perelson）从理论免疫学中引出免疫网络的动态模型。
+
+<ul>
+<li>文章中对比了免疫网络和神经网络的差异</li>
+<li>建议从计算的角度分析免疫系统IS</li>
+</ul>
+
+</li>
+<li>1988年Varela（Varela, F. and Coutinho, A. and Dupire, B. and Nelson, N.）进一步对比了免疫、神经系统。</li>
+<li>1990年，日本人石田（Ishida, Y.）是第一个将免疫算法应用在解决实际问题。</li>
+<li>上世纪90年代中期，Forrest等人提出Self-nonself及反向选择算法，应用于计算机安全领域</li>
+<li>上世纪90年代中期，Hunt等人将免疫的思想用于机器学习领域</li>
+<li>started quite immunological grounded(基础性的工作开始)
+
+<ul>
+<li>1991年Bersini, H. &amp; Varela, F.出版的著作《Hints for adaptive problem solving gleaned from immune networks》</li>
+<li>1994年Forrest, S.; Perelson, A.; Allen, L. &amp; Cherukuri, R.提出的self-nonself，同前述</li>
+</ul>
+
+</li>
+<li>Kind of moved away from that, and abstracted more. (有点儿脱离原来的定义、轨迹，变得更加的抽象、隐喻？)</li>
+<li>当前，有种趋势是回归免疫学的根本以及更多的交叉(主要的表现是，2007年生物免疫学家在Nature Reviews Immunology上发表的)
+
+<ul>
+<li>例如2007年Cohen的&quot;The immune system computes&quot;</li>
+<li>“what might we gain by thinking about immune computation”, Cohen,2007（Mr. Timmis的slide中应该是笔误成了2008）</li>
+</ul>
+
+</li>
+</ul>
+
+提出问题！
+<strong>But how do we manage this intreaction to make it worth while for all concerned ... ?</strong>
+
+接着提出了AIS一些有趣的地方，自适应性、无中心、自学习、动态平衡等特征。
+
+AIS的概念框架(Conceptual Frameworks）
+<a href="http://jackeylu.files.wordpress.com/2011/03/4cd8d6d5dda93ae73a0984cdb1ebc7fa.png" target="_blank" rel="external"><img src="http://jackeylu.files.wordpress.com/2011/03/4cd8d6d5dda93ae73a0984cdb1ebc7fa.png" alt="" title="4cd8d6d5dda93ae73a0984cdb1ebc7fa" width="612" height="242" class="alignnone size-full wp-image-217"></a>
+
+该框架图出自Timmis Jonathan与De Castro合著的书《Artificial immune systems: a new computational intelligence approach》。将当前研究的交叉方法简单描述出来。
+
+这时候枪头一转，问个问题：什么是免疫系统（Immune System, IS）？
+有三种不同角度的解释：
+
+<ol>
+<li>Classic View
+
+<ul>
+<li>a complex system of celluar and molecular components having the primary function of distinguishing self from not self and defense against foreign organisms or substances.</li>
+<li>上面的翻译：是一种复杂系统，由细胞、分子等组成，主要的功能是从“非我”中区分出“自我”（而不是去查找“非我”，记忆、查找的空间会更小），并对外来有机物或者物质起到防御作用</li>
+</ul>
+
+</li>
+<li>Cognitive View（认知角度）
+
+<ul>
+<li>The immune system is a cognitive system whose primary role is to provide body maintenance.[2]</li>
+<li>免疫系统是一种认知系统，扮演着提供机体维护的角色[2]</li>
+</ul>
+
+</li>
+<li>Danger View
+
+<ul>
+<li>The immune system recognises dangerous agents and not non-self [9]</li>
+<li>发现威胁性物体，而不是关注于“非我”的死死寻觅 [9]</li>
+</ul>
+
+</li>
+</ol>
+
+[gallery include="218,219"]
+
+Classic view 代表的是clonal slection 和negative selection等方法。
+
+<strong>AIS的工程应用</strong>
+
+[gallery include="220,221,222,223"]
+
+提到的论文，及其相关信息和摘要：
+
+[1]Bersini, H. &amp; Varela, F. Schwefel, H.-P. &amp; Männer, R. (Eds.) <strong>Hints for adaptive problem solving gleaned from immune networks</strong> <em>Parallel Problem Solving from Nature, Springer Berlin / Heidelberg, 1991</em>, 496, 343-354
+[2] Cohen, I. R. <strong>On Tending Adam's Garden</strong> <em>Tending Adam's Garden, Academic Press</em>, 2000, 243 - 255
+[3] Cohen, I. R. <strong>Real and artificial immune systems: computing the state of the body</strong> <em>Nature Reviews Immunology</em>, 2007, 07, 569-574
+[4] De Castro, L. &amp; Timmis, J. <strong>Artificial immune systems: a new computational intelligence approach</strong> Springer Verlag, 2002
+[5] Farmer, J. D.; Packard, N. H. &amp; Perelson, A. S. <strong>The immune system, adaptation, and machine learning</strong> <em>Physica D: Nonlinear Phenomena</em>, 1986, 22, 187 - 204
+<strong>Abstract</strong>: The immune system is capable of learning, memory, and pattern recognition. By employing genetic operators on a time scale fast enough to observe experimentally, the immune system is able to recognize novel shapes without preprogramming.<strong> Here we describe a dynamical model for the immune system that is based on the network hypothesis of Jerne, and is simple enough to simulate on a computer.</strong> This model has a strong similarity to an approach to learning and artificial intelligence introduced by Holland, called the classifier system. We demonstrate that simple versions of the classifier system can be cast as a nonlinear dynamical system, and explore the analogy between the immune and classifier systems in detail. Through this comparison we hope to gain insight into the way they perform specific tasks, and to suggest new approaches that might be of value in learning systems.
+[6] Forrest, S.; Perelson, A.; Allen, L. &amp; Cherukuri, R. <strong>Self-nonself discrimination in a computer </strong><em>Research in Security and Privacy, 1994. Proceedings.</em>, 1<em>994 IEEE Computer Society Symposium on</em>, 1994, 202 -212
+<strong>Abstract</strong>: The problem of protecting computer systems can be viewed generally as the problem of<strong> learning to distinguish self from other</strong>. The authors describe a method for<strong> change detection</strong> which is based on the generation of <strong>T cells in the immune system.</strong> Mathematical analysis reveals computational costs of the system, and preliminary experiments illustrate how the method might be applied to the problem of <strong>computer viruses</strong>
+[7] Hunt, J. E. &amp; Cooke, D. E. <strong>Learning using an artificial immune system</strong> <em>Journal of Network and Computer Applications, 1996, 19, 189 - 212</em>
+<strong>Abstract</strong>: In this paper we describe an artificial immune system (AIS) which is based upon models of the natural immune system. This natural system is an example of an evolutionary learning mechanism which possesses a content addressable memory and the ability to forget little-used information. It is also an example of an adaptive non-linear network in which control is decentralized and problem processing is efficient and effective. As such, the immune system has the potential to offer novel problem solving methods. The AIS is an example of a system developed around the current understanding of the immune system. It illustrates how an artificial immune system can capture the basic elements of the immune system and exhibit some of its chief characteristics. We illustrate the potential of the AIS on a simple pattern recognition problem. We then apply the AIS to a real-world problem: the recognition of promoters in DNA sequences. The results obtained are consistent with other appproaches, such as neural networks and Quinlan's ID3 and are better than the nearest neighbour algorithm. The primary advantages of the AIS are that it only requires positive examples, and the patterns it has learnt can be explicitly examined. In addition, because it is self-organizing, it does not
+require effort to optimize any system parameters.
+[8] Ishida, Y. <strong>Fully distributed diagnosis by PDP learning algorithm: towards immune network PDP model Neural Networks</strong>, 1990., <em>1990 IJCNN International Joint Conference on</em>, 1990, 777 -782 vol.1
+<strong>Abstract</strong>: Based on the strong analogy between neural networks and distributed diagnosis models, diagnostic algorithms are presented which are similar to the learning algorithm used in neural networks. Diagnostic implications of convergence theorems proved by the Lyapunov function are also discussed. Regarding diagnosis process as a recalling process in the associative memory, a diagnostic method of associative diagnosis is also presented. A good guess of diagnosis is given as a key to recalling the correct diagnosis. The authors regard the distributed diagnosis as an immune network model, a novel PDP (parallel distributed processing) model. This models the recognition capability emergent from cooperative recognition of interconnected units.
+[9] Matzinger, P. <strong>The Danger Model: A Renewed Sense of Self</strong> <em>Science</em>, 2002, 296, 301-305
+[10] Neal, M.; Stepney, S.; Smith, R. &amp; Timmis, J. <strong>Conceptual frameworks for artificial immune systems</strong> <em>International Journal on Unconventional Computing</em>, Old City Publishing, 2005, 1, 315-338
+[11] Varela, F.; Coutinho, A.; Dupire, B. &amp; Nelson, N. <strong>Cognitive networks: immune, neural and otherwise</strong> <em>Addison Wesley Publishing Company</em>, 1988
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Uncategorized</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2011/03/10/report-an-overview-of-aritficial-immune-systems/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-哈佛图书馆的二十条训言" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/03/06/哈佛图书馆的二十条训言/">哈佛图书馆的二十条训言</a>
+    </h1>
+  
+
+        
+        <a href="/2011/03/06/哈佛图书馆的二十条训言/" class="archive-article-date">
+  	<time datetime="2011-03-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2011-03-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td><h3><a href="http://www.evernote.com/" target="_blank" rel="external">From Evernote:</a></h3></td>
+</tr>
+<tr>
+<td><h1>哈佛图书馆的二十条训言：</h1> Clipped from: <a href="http://blog.renren.com/share/341854935/5381280168" target="_blank" rel="external">http://blog.renren.com/share/341854935/5381280168</a></td>
+</tr>
+</table>
+
+哈佛图书馆的二十条训言：
+
+1、此刻打盹，你将做梦；而此刻学习，你将圆梦。（This moment will nap, you will have a dream; But this moment study,you will interpret a dream. ）
+
+2、 我荒废的今日，正是昨日殒身之人祈求的明日。（I leave uncultivated today, was precisely yesterday perishes tomorrow which person of the body implored.）
+
+3、觉得为时已晚的时候，恰恰是最早的时候。（Thought is already is late, exactly is the earliest time.）
+
+4、勿将今日之事拖到明日。（Not matter of the today will drag tomorrow. ）
+
+5、学习时的苦痛是暂时的，未学到的痛苦是终生的。（Time the study pain is temporary, has not learned the pain islife-long. ）
+
+6、学习这件事，不是缺乏时间，而是缺乏努力。（Studies this matter, lacks the time, but is lacks diligently.）
+
+7、幸福或许不排名次，但成功必排名次。（Perhaps happiness does not arrange the position, but succeeds must arrange the position. ）
+
+8、 学习并不是人生的全部。但，既然连人生的一部分——学习也无法征服，还能做什么呢？（The study certainly is not the life complete. But, since continually life part of-studies also is unable to conquer, what butalso can make?）
+
+9、请享受无法回避的痛苦。（Please enjoy the pain which is unable to avoid.）
+
+10、只有比别人更早、更勤奋地努力，才能尝到成功的滋味。（only has compared to the others early, diligently diligently, canfeel the successful taste.）
+
+11、谁也不能随随便便成功，它来自彻底的自我管理和毅力。（Nobody can casually succeed, it comes from the thoroughself-control and the will. ）
+
+12、时间在流逝。（The time is passing. ）
+
+13、现在流的口水，将成为明天的眼泪。（Now drips the saliva, will become tomorrow the tear.）
+
+14、狗一样地学，绅士一样地玩。（The dog equally study, the gentleman equally plays.）
+
+15、今天不走，明天要跑。（Today does not walk, will have to run tomorrow.）
+
+16、投资未来的人是，忠于现实的人。（The investment future person will be, will be loyal to the realityperson. ）
+
+17、教育程度代表收入。（The education level represents the income. ）
+
+18、一天过完，不会再来。（one day, has not been able again to come. ）
+
+19、即使现在，对手也不停地翻动书页。（Even if the present, the match does not stop changes the page.）
+
+20、没有艰辛，便无所得。(Has not been difficult, then does not have attains'.)
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Uncategorized</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2011/03/06/哈佛图书馆的二十条训言/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-蓝精灵游戏界面截图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -203,133 +558,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2011/03/03/蓝精灵游戏界面截图/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-using-natures-ideas-to-solve-our-problems" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2011/02/27/using-natures-ideas-to-solve-our-problems/">Using Nature&#39;s Ideas to Solve Our Problems</a>
-    </h1>
-  
-
-        
-        <a href="/2011/02/27/using-natures-ideas-to-solve-our-problems/" class="archive-article-date">
-  	<time datetime="2011-02-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2011-02-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <table cellspacing="0" cellpadding="0" width="100%">
-<tr>
-<td><h3><a href="http://www.evernote.com/" target="_blank" rel="external">From Evernote:</a></h3></td>
-</tr>
-<tr>
-<td><h1>Using Nature's Ideas to Solve Our Problems</h1> Clipped from: <a href="http://sciencecareers.sciencemag.org/career_development/previous_issues/articles/2870/using_nature_s_ideas_to_solve_our_problems" target="_blank" rel="external">http://sciencecareers.sciencemag.org/career_development/previous_issues/articles/2870/using_nature_s_ideas_to_solve_our_problems</a></td>
-</tr>
-</table>
-
-The Job Market
-
-<h1>Using Nature's Ideas to Solve Our Problems</h1> By <a>Uwe Aickelin</a>
-
-February 20, 2004
-
-It turned out that [immunologists] were not aware that [their discipline] was a source of inspiration to mathematicians!
-
-<a>BACK TO THE FEATURE INDEX</a>
-
-<em>Editor's note: Uwe Aickelin didn't train as a typical mathematician, nor biologist, yet he now finds himself at the heart of a project that mixes the two. While following his love for mathematics, he came across concepts inspired by the natural world and became hooked on these ideas.</em>
-
-<strong>I</strong> started out as an undergraduate student in business science at the <a href="http://www.uni-mannheim.de/index-E.html" target="_blank" rel="external">University of Mannheim</a> in Germany, my home country. This degree covers all aspects of business and management studies, including marketing, finance, law, economics, and production scheduling. I chose business science at the time because I wanted to study something worthwhile that would also lead to a well-paid job. However, my true passion had always been mathematics, so whenever I could, I picked options that were related to mathematical subjects. One such topic was operational research, which investigates how to model business situations mathematically in order to make the best decisions, subject to certain criteria and limited resources.
-
-<strong>If It Works in Nature, Why Not in Business?</strong>
-
-I was offered the chance to specialise in this area with a master's at the <a href="http://www2.swan.ac.uk/" target="_blank" rel="external">University of Wales, Swansea</a>, during which I learnt about those algorithms that are borrowed from the sphere of artificial intelligence to solve the more complex problems. With one such algorithm, evolutionary computation, a number of random solutions to a problem are created and subsequently allowed to &quot;breed,&quot; thereby creating more solutions. This, together with a Darwinian &quot;survival of the fittest&quot; amongst all solutions and an occasional &quot;mutation,&quot; eventually leads to better and better solutions. I was hooked by this approach, as it seemed simple yet powerful. After all, if it works in nature, why not in business? This is a motto I would come back to again and again in my career.
-
-So I decided to undertake a Ph.D. in Swansea to get to know these algorithms a bit better. I chose Kathryn Dowsland as my supervisor, both for her expertise in the area and as someone I thought I would get along with very well. I would strongly advise any prospective Ph.D. student to meet their supervisor a few times before starting, as a mutual understanding and respect is probably more important than the exact topic of the Ph.D. My own project was to use evolutionary algorithms to optimise solutions to multiple-choice problems, such as which nurse should be allocated to which shift in a hospital.
-
-Coming to the end of my Ph.D. in 1999, I was still contemplating entering the world of business as a management consultant, but I had started to enjoy the world of research. In the end I decided on a lectureship in operational research in the School of Mathematics at the University of the West of England ( <a href="http://www.uwe.ac.uk/" target="_blank" rel="external">UWE</a>) in Bristol.
-
-When making this choice, I had to turn down a postdoc. Even though a lectureship is often seen as the Holy Grail for young researchers, I actually found the choice difficult. I knew that going for a lectureship straight away would be more of a challenge as well as more risky in the long run. Choosing the postdoc route may mean that you effectively enter the profession later, but it leaves you more space and time to build up a good publication record so that you might actually end up in a better position a few years down the line.
-
-Still, I took the plunge and met my first challenge as a lecturer: teaching! Although I had taught the occasional lab class before and UWE was running support classes for new lecturers, I found my first year of teaching very difficult and time-consuming. But it was through my teaching that I first became interested in the biological concept--danger theory--that is behind my current project.
-
-I gave my students an investigation of so-called artificial immune systems (AIS) as a piece of coursework. AIS are similar to evolutionary algorithms. However, rather than borrowing ideas from evolution and Darwin, they draw on concepts related to the human immune system.
-
-One of my students, Steve Cayzer, who unbeknownst to me held a Ph.D. in biological sciences, did a much better job than my average student, and we found that we could devise AIS algorithms that were useful for solving complex data-mining problems. Consider the example of renting a video. To make sure that you pick a movie you have never seen and will like, what you really need are a couple of friends who know your tastes and have seen a wide range of films. But if your friends aren't around, you could always turn to an AIS for recommendations.
-
-How? Well, your tastes would be mathematically modelled as &quot;antigens&quot; (or targets) and then matched against possible &quot;antibodies,&quot; i.e., movies that have previously been entered into a database according to the likes and dislikes of other people. In the human immune system, the antibodies would kill the antigens, but in the AIS, they can be used to predict films you would like.
-
-<strong>Responding to Danger Signals</strong>
-
-This led me to ask immunologists around UWE what they thought of AIS. It turned out that they were not aware that immunology was a source of inspiration to mathematicians! After some interesting discussions I enquired about what was hot in immunology and was given a paper entitled &quot;The Danger Theory.&quot; This theory challenges the traditional idea that the body attacks intruders because they are recognised as foreign to the body, arguing that what the immune system responds to is a signal of danger instead. I immediately saw the potential benefits of applying this theory to the design of an AIS that would provide an intrusion detection system (IDS) for computer security.
-
-Although current AIS show great potential for tackling intruders, they have been held back by the huge amount of processing required by traditional models of natural immune systems. If you consider using the classical paradigm to protect a computer network against everything that is foreign to it, it means mapping the rest of the world! The danger theory provides brand-new ideas upon which to design AIS.
-
-Through our danger theory project we are trying to construct effective artificial defence mechanisms that could be used for computer security as well as financial fraud detection and network fault management. The project got funded by the Engineering and Physical Sciences Research Council and is the largest of its type in the United Kingdom.
-
-Writing the proposal was difficult, as it meant learning a lot of the immunological phrases and vocabulary. I was greatly helped by Julie McLeod, an immunologist at UWE, and by my student Steve Cayzer, who, knowing both sides of the coin, was an excellent translator. Finally, other experts I met at conferences and workshops--immunologists from the <a href="http://www.bris.ac.uk/" target="_blank" rel="external">University of Bristol</a> and IDS experts from <a href="http://www.ucl.ac.uk/" target="_blank" rel="external">University College London</a>, <a href="http://www.hp.com/" target="_blank" rel="external">Hewlett-Packard</a>, and <a href="http://www.ecsc.co.uk/" target="_blank" rel="external">ECSC</a>, a leading computer-security company--also got involved in the project. So my one piece of advice on writing proposals for multidisciplinary projects is to ask the experts. OK, it will take you some time and effort to understand what they are talking about, but it is much better than trying to do it yourself and second-guessing.
-
-I now work at the <a href="http://www.nottingham.ac.uk/" target="_blank" rel="external">University of Nottingham</a>, where I am the principal investigator of the danger theory project, which means leading a team of 10. Hence I am busier than ever! The project will last for another 3 years, and I look forward to discovering more about using nature's ideas to solve our problems.
-
-<em>If you would like to find out more about Uwe Aickelin's work or get in touch with him, see <a href="http://www.aickelin.com/" target="_blank" rel="external">his Web site</a>.</em> .
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Uncategorized</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2011/02/27/using-natures-ideas-to-solve-our-problems/">展开全文 >></a>
         </p>
       
 
@@ -593,6 +821,341 @@ main(<span style="color:#0000ff;">int</span> argc, <span style="color:#0000ff;">
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2011/02/27/pthreads调试/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-using-natures-ideas-to-solve-our-problems" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/02/27/using-natures-ideas-to-solve-our-problems/">Using Nature&#39;s Ideas to Solve Our Problems</a>
+    </h1>
+  
+
+        
+        <a href="/2011/02/27/using-natures-ideas-to-solve-our-problems/" class="archive-article-date">
+  	<time datetime="2011-02-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2011-02-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td><h3><a href="http://www.evernote.com/" target="_blank" rel="external">From Evernote:</a></h3></td>
+</tr>
+<tr>
+<td><h1>Using Nature's Ideas to Solve Our Problems</h1> Clipped from: <a href="http://sciencecareers.sciencemag.org/career_development/previous_issues/articles/2870/using_nature_s_ideas_to_solve_our_problems" target="_blank" rel="external">http://sciencecareers.sciencemag.org/career_development/previous_issues/articles/2870/using_nature_s_ideas_to_solve_our_problems</a></td>
+</tr>
+</table>
+
+The Job Market
+
+<h1>Using Nature's Ideas to Solve Our Problems</h1> By <a>Uwe Aickelin</a>
+
+February 20, 2004
+
+It turned out that [immunologists] were not aware that [their discipline] was a source of inspiration to mathematicians!
+
+<a>BACK TO THE FEATURE INDEX</a>
+
+<em>Editor's note: Uwe Aickelin didn't train as a typical mathematician, nor biologist, yet he now finds himself at the heart of a project that mixes the two. While following his love for mathematics, he came across concepts inspired by the natural world and became hooked on these ideas.</em>
+
+<strong>I</strong> started out as an undergraduate student in business science at the <a href="http://www.uni-mannheim.de/index-E.html" target="_blank" rel="external">University of Mannheim</a> in Germany, my home country. This degree covers all aspects of business and management studies, including marketing, finance, law, economics, and production scheduling. I chose business science at the time because I wanted to study something worthwhile that would also lead to a well-paid job. However, my true passion had always been mathematics, so whenever I could, I picked options that were related to mathematical subjects. One such topic was operational research, which investigates how to model business situations mathematically in order to make the best decisions, subject to certain criteria and limited resources.
+
+<strong>If It Works in Nature, Why Not in Business?</strong>
+
+I was offered the chance to specialise in this area with a master's at the <a href="http://www2.swan.ac.uk/" target="_blank" rel="external">University of Wales, Swansea</a>, during which I learnt about those algorithms that are borrowed from the sphere of artificial intelligence to solve the more complex problems. With one such algorithm, evolutionary computation, a number of random solutions to a problem are created and subsequently allowed to &quot;breed,&quot; thereby creating more solutions. This, together with a Darwinian &quot;survival of the fittest&quot; amongst all solutions and an occasional &quot;mutation,&quot; eventually leads to better and better solutions. I was hooked by this approach, as it seemed simple yet powerful. After all, if it works in nature, why not in business? This is a motto I would come back to again and again in my career.
+
+So I decided to undertake a Ph.D. in Swansea to get to know these algorithms a bit better. I chose Kathryn Dowsland as my supervisor, both for her expertise in the area and as someone I thought I would get along with very well. I would strongly advise any prospective Ph.D. student to meet their supervisor a few times before starting, as a mutual understanding and respect is probably more important than the exact topic of the Ph.D. My own project was to use evolutionary algorithms to optimise solutions to multiple-choice problems, such as which nurse should be allocated to which shift in a hospital.
+
+Coming to the end of my Ph.D. in 1999, I was still contemplating entering the world of business as a management consultant, but I had started to enjoy the world of research. In the end I decided on a lectureship in operational research in the School of Mathematics at the University of the West of England ( <a href="http://www.uwe.ac.uk/" target="_blank" rel="external">UWE</a>) in Bristol.
+
+When making this choice, I had to turn down a postdoc. Even though a lectureship is often seen as the Holy Grail for young researchers, I actually found the choice difficult. I knew that going for a lectureship straight away would be more of a challenge as well as more risky in the long run. Choosing the postdoc route may mean that you effectively enter the profession later, but it leaves you more space and time to build up a good publication record so that you might actually end up in a better position a few years down the line.
+
+Still, I took the plunge and met my first challenge as a lecturer: teaching! Although I had taught the occasional lab class before and UWE was running support classes for new lecturers, I found my first year of teaching very difficult and time-consuming. But it was through my teaching that I first became interested in the biological concept--danger theory--that is behind my current project.
+
+I gave my students an investigation of so-called artificial immune systems (AIS) as a piece of coursework. AIS are similar to evolutionary algorithms. However, rather than borrowing ideas from evolution and Darwin, they draw on concepts related to the human immune system.
+
+One of my students, Steve Cayzer, who unbeknownst to me held a Ph.D. in biological sciences, did a much better job than my average student, and we found that we could devise AIS algorithms that were useful for solving complex data-mining problems. Consider the example of renting a video. To make sure that you pick a movie you have never seen and will like, what you really need are a couple of friends who know your tastes and have seen a wide range of films. But if your friends aren't around, you could always turn to an AIS for recommendations.
+
+How? Well, your tastes would be mathematically modelled as &quot;antigens&quot; (or targets) and then matched against possible &quot;antibodies,&quot; i.e., movies that have previously been entered into a database according to the likes and dislikes of other people. In the human immune system, the antibodies would kill the antigens, but in the AIS, they can be used to predict films you would like.
+
+<strong>Responding to Danger Signals</strong>
+
+This led me to ask immunologists around UWE what they thought of AIS. It turned out that they were not aware that immunology was a source of inspiration to mathematicians! After some interesting discussions I enquired about what was hot in immunology and was given a paper entitled &quot;The Danger Theory.&quot; This theory challenges the traditional idea that the body attacks intruders because they are recognised as foreign to the body, arguing that what the immune system responds to is a signal of danger instead. I immediately saw the potential benefits of applying this theory to the design of an AIS that would provide an intrusion detection system (IDS) for computer security.
+
+Although current AIS show great potential for tackling intruders, they have been held back by the huge amount of processing required by traditional models of natural immune systems. If you consider using the classical paradigm to protect a computer network against everything that is foreign to it, it means mapping the rest of the world! The danger theory provides brand-new ideas upon which to design AIS.
+
+Through our danger theory project we are trying to construct effective artificial defence mechanisms that could be used for computer security as well as financial fraud detection and network fault management. The project got funded by the Engineering and Physical Sciences Research Council and is the largest of its type in the United Kingdom.
+
+Writing the proposal was difficult, as it meant learning a lot of the immunological phrases and vocabulary. I was greatly helped by Julie McLeod, an immunologist at UWE, and by my student Steve Cayzer, who, knowing both sides of the coin, was an excellent translator. Finally, other experts I met at conferences and workshops--immunologists from the <a href="http://www.bris.ac.uk/" target="_blank" rel="external">University of Bristol</a> and IDS experts from <a href="http://www.ucl.ac.uk/" target="_blank" rel="external">University College London</a>, <a href="http://www.hp.com/" target="_blank" rel="external">Hewlett-Packard</a>, and <a href="http://www.ecsc.co.uk/" target="_blank" rel="external">ECSC</a>, a leading computer-security company--also got involved in the project. So my one piece of advice on writing proposals for multidisciplinary projects is to ask the experts. OK, it will take you some time and effort to understand what they are talking about, but it is much better than trying to do it yourself and second-guessing.
+
+I now work at the <a href="http://www.nottingham.ac.uk/" target="_blank" rel="external">University of Nottingham</a>, where I am the principal investigator of the danger theory project, which means leading a team of 10. Hence I am busier than ever! The project will last for another 3 years, and I look forward to discovering more about using nature's ideas to solve our problems.
+
+<em>If you would like to find out more about Uwe Aickelin's work or get in touch with him, see <a href="http://www.aickelin.com/" target="_blank" rel="external">his Web site</a>.</em> .
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Uncategorized</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2011/02/27/using-natures-ideas-to-solve-our-problems/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-polly-matzinger-and-her-danger-model" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/02/27/polly-matzinger-and-her-danger-model/">Polly Matzinger and her Danger Model</a>
+    </h1>
+  
+
+        
+        <a href="/2011/02/27/polly-matzinger-and-her-danger-model/" class="archive-article-date">
+  	<time datetime="2011-02-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2011-02-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td><h3><a href="http://www.evernote.com/" target="_blank" rel="external">From Evernote:</a></h3></td>
+</tr>
+<tr>
+<td><h1>Polly Matzinger</h1> Clipped from: <a href="http://en.wikipedia.org/wiki/Polly_Matzinger" target="_blank" rel="external">http://en.wikipedia.org/wiki/Polly_Matzinger</a></td>
+</tr>
+</table>
+
+<h1>Polly Matzinger</h1>From Wikipedia, the free encyclopedia
+<a><img height="181" src="http://upload.wikimedia.org/wikipedia/en/thumb/b/b7/Polly_&amp;amp;_Annie.jpg/220px-Polly_&amp;amp;_Annie.jpg" width="220" alt="220px-Polly_&amp;amp;_Annie.jpg"></a><a title="Enlarge"><img src="http://jackeylu.files.wordpress.com/2011/02/4eb85e24f8668f4abb644f8080933908.png" alt="" title="4eb85e24f8668f4abb644f8080933908" width="15" height="11" class="alignnone size-full wp-image-212"></a>
+Polly &amp; Annie
+
+<strong>Polly Celine Eveline Matzinger</strong> (born 21 July 1947) is an <a title="Iconoclasm">iconoclastic</a> scientist who proposed a novel explanation of how the<a>immune system</a> works, called the <em>danger model</em>.
+
+<table><tbody>
+<tr>
+<td><h2>Contents</h2> [<a style="text-decoration:none;color:rgb(6,69,173);background-image:none;background-repeat:initial;background-attachment:initial;background-color:initial;background-position:initial initial;">hide</a>]
+
+<ul>
+<li><a>1 Early years</a></li>
+<li><a>2 Ghost Lab at NIAID</a></li>
+<li><a>3 The Danger Model</a>
+
+<ul>
+<li><a>3.1 Danger signals</a></li>
+<li><a>3.2 Scope</a></li>
+</ul>
+
+</li>
+<li><a>4 Pattern recognition and a tissue-driven immune system</a></li>
+<li><a>5 Challenges to Matzinger's theories</a></li>
+<li><a>6 Past and current work with dogs</a></li>
+<li><a>7 Publications</a></li>
+<li><a>8 Films</a></li>
+<li><a>9 External links</a></li>
+<li><a>10 References</a></li>
+</ul>
+
+</td>
+</tr>
+</tbody>
+</table>
+
+<h2>[<a style="text-decoration:none;color:rgb(6,69,173);background-image:none;background-repeat:initial;background-attachment:initial;background-color:initial;background-position:initial initial;" title="Edit section: Early years">edit</a>]Early years</h2> Polly Matzinger took to science from an unusual background career path which included stints as a <a>Playboy Bunny</a> at a <a>Playboy</a> Club in <a>Denver</a>, a bar <a title="Waitress">waitress</a>, a <a>jazz</a>musician, a <a title="Carpenter">carpenter</a> and <a>dog trainer</a>. In 1974 Polly Matzinger had dropped in and out of college for years and worked at various jobs before ending up waitressing at a bar frequented by faculty from the <a title="University of California, Davis">University of California, at Davis</a> and here she met Professor Robert Schwab, the head of the University's <a title="Nature documentary">wildlife program</a> who noticed her talent and persuaded her to take to science.<a>[1<span>]</span></a>
+
+She eventually went to the <a>University of California, San Diego</a> for her Ph.D., did post-doctoral work at the <a>University of Cambridge</a>, and was a scientist at the <a>Basel Institute for Immunology</a> before coming to the National Institutes of Health in Bethesda, Maryland.
+
+<h2>[<a style="text-decoration:none;color:rgb(6,69,173);background-image:none;background-repeat:initial;background-attachment:initial;background-color:initial;background-position:initial initial;" title="Edit section: Ghost Lab at NIAID">edit</a>]Ghost Lab at NIAID</h2> Polly Matzinger is now a section head at the <a>National Institute of Allergy and Infectious Diseases</a>. Matzinger and her coworkers refer to the lab's name as the 'Ghost Lab' when listing their affiliation in papers. The nickname was given to the lab by her colleagues when Matzinger first arrived at the NIH because she spent the first nine months studying a new field (Chaos Theory) that she thought might apply to the immune system, and the lab sat empty. The formal name of her laboratory is the T-Cell Tolerance and Memory Section of the Laboratory of Cellular and Molecular Immunology. The ghost lab now hosts 3 post-doctoral researchers .<a href="http://www3.niaid.nih.gov/labs/aboutlabs/lcmi/tCellToleranceMemorySection/" target="_blank" rel="external">[1]</a> From this knowledge pool, approximately 0-3 original research articles are published a year, including original research articles and theoretical pieces. A majority of the publications are her taken-author published works, theoretical in nature and published in very highly cited journals. <a href="http://www.ncbi.nlm.nih.gov/sites/entrez" target="_blank" rel="external">[2]</a>
+
+<h2>[<a style="text-decoration:none;color:rgb(6,69,173);background-image:none;background-repeat:initial;background-attachment:initial;background-color:initial;background-position:initial initial;" title="Edit section: The Danger Model">edit</a>]The Danger Model</h2> The self-non-self model, the predominant model in immunology since the 1950s, began to encounter problems in the late 1980s when immunologists began to recognize that <a title="T-cells">T-cells</a> depend on other cells to pick up and then present the things to which they will respond — and that the <a title="Cell-mediated immunity">T-cell response</a> depends on whether the other cell (known as <a title="Antigen-presenting cells">antigen-presenting cells</a>) is sending activation signals to the T-cells.
+
+In 1989, drawing on the ideas of <a>Thomas Kuhn</a>, <a>Charles Janeway</a> proposed that the old immunological paradigm had reached the limits of its usefulness—or, as he described it, the <a>asymptote</a> of the increase in knowledge which it had brought. Janeway argued that the innate immune system was the real gatekeeper of whether the immune system responded or did not respond. He also argued that the innate immune system used ancient pattern-recognition receptors to make these decisions - recognizing a <a>pathogen</a> by its unchanging characteristics.
+
+<h3>[<a style="text-decoration:none;color:rgb(6,69,173);background-image:none;background-repeat:initial;background-attachment:initial;background-color:initial;background-position:initial initial;" title="Edit section: Danger signals">edit</a>]Danger signals</h3> In a 1994 article entitled &quot;Tolerance, Danger and the Extended Family&quot;, Matzinger went several steps further by laying out the idea that antigen-presenting cells respond to &quot;danger signals&quot; - most notably from cells undergoing injury, or stress or &quot;bad cell death&quot; (as opposed to <a>apoptosis</a>, controlled <a title="Programmed cell death">cell death</a>). The alarm signals released by these cells let the immune system know that there is a problem requiring an immune response. She argued that T-cells and the immune response they orchestrate occurs not because of a neonatal definition of &quot;self&quot;, as in the previous model, nor because of ancient definitions of pathogens, as in Janeway's argument, but due to a dynamic and constantly-updated response to danger as defined by cellular damage.
+
+<h3>[<a style="text-decoration:none;color:rgb(6,69,173);background-image:none;background-repeat:initial;background-attachment:initial;background-color:initial;background-position:initial initial;" title="Edit section: Scope">edit</a>]Scope</h3> The Danger Model is quite broad, covering topics as diverse as transplantation, maternal/fetal immunity, autoimmunity, cancer treatments, and vaccines, but Matzinger points out that although it offers an explanation of how an immune response is triggered and how it ends, it does not (yet) offer an explanation of why the immune system responds in different ways to different situations. She hypothesizes that tissues send signals to the immune system that determine the immune response appropriate for that tissue, and her lab is now working on experiments to test that hypothesis.
+
+The Danger Model has not won universal acceptance. Some immunologists, following Janeway's ideas more directly, believe that the immune response is mainly fueled by innate evolutionarily-conserved &quot;pattern recognition receptors&quot; which recognize patterns expressed by microbes such as bacteria, and do not see cell death in the absence of pathogens as a primary driver of immune response. These ideas however, do not explain how the immune system rejects transplants (most well-done transplants are not covered in bacteria), or tumors, or induce <a title="Autoimmunity">autoimmune diseases</a>.
+
+<h2>[<a style="text-decoration:none;color:rgb(6,69,173);background-image:none;background-repeat:initial;background-attachment:initial;background-color:initial;background-position:initial initial;" title="Edit section: Pattern recognition and a tissue-driven immune system">edit</a>]Pattern recognition and a tissue-driven immune system</h2> Recently, Seong and Matzinger have suggested that the &quot;patterns&quot; that the immune system recognizes on bacteria are not as different from the alarm signals released by damaged cells as one might have thought. They suggested that, because life evolved in water, the hydrophobic portions (Hyppos) of molecules are normally hidden in the internal parts of molecules or other structures (like membranes) and that the sudden exposure of a Hyppo is a sure sign that some injury or damage has occurred. They suggested that these are the most ancient alarm signals, that they are recognized by evolutionarily ancient systems of repair and remodeling, and that the modern immune system piggy-backed on this ancient system. Thus bacteria and other organisms may have very similar alarm systems. They describe these ancient signals as Danger-associated molecular patterns, or DAMPs.
+
+In a recent article in Nature Immunology <a href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=pubmed&amp;amp;list_uids=17179963&amp;amp;cmd=Retrieve&amp;amp;indexed=google" target="_blank" rel="external">[3]</a>, Matzinger makes a case for what she now views as the most important implication of the Danger Model: that the tissues of the body are a large part of what drive immune response. She argues that immunologists have had overly simplistic and schematic ideas about immune response because of the limits of their assays, and that organs are likely to induce immune responses that are best-suited to defending the organ from the damage of microbes<em>but also</em> from the damage of the immune system itself. She also asserts that the relationship of the immune system to <a title="Commensal">commensal</a> bacteria remains poorly understood but is likely to be important.
+
+Matzinger argues that the idea of DAMPs may explain why <a title="Toll-like receptor">Toll-like receptors</a> seem to respond both to external and <a title="Toll-like receptor">endogenous</a> signals (while acknowledging controversy over this issue). By emphasizing her theory that the tissues drive the nature of the immune response (i.e., the &quot;what type&quot; rather than the &quot;whether&quot; of immune response), Matzinger describes a dynamic immune system with complex webs of signalling, rather than an immune system that can be explained by a simple and easily reducible set of molecular signals that initiate response, or by a small set of cells (e.g., &quot;regulatory&quot; T-cells) which shut it down.
+
+<h2>[<a style="text-decoration:none;color:rgb(6,69,173);background-image:none;background-repeat:initial;background-attachment:initial;background-color:initial;background-position:initial initial;" title="Edit section: Challenges to Matzinger's theories">edit</a>]Challenges to Matzinger's theories</h2> There is now a growing body of work on &quot;regulatory T-cells&quot; which argues that immune activity is stopped by a special subset of T-cells. These ideas challenge several of the key specifics of Matzinger's model.
+
+A student sitting in an immunology class today will likely hear many phrases coined by Matzinger (like &quot;professional antigen-presenting-cell&quot; or &quot;danger signal&quot; or &quot;DAMPs&quot; (damage associated molecular patterns&quot;) but will often hear them in the framework of a self-non-self explanation of immunity. Other immunologists have often adapted parts of Matzinger's ideas without adopting the Danger Model as a theoretical framework.
+
+Indeed, in an era of increasingly detailed molecular work, many immunologists simply avoid constructing an alternative broad theory of immune function. Others believe that the immune system is not a single system at all, and is instead a set of mechanisms &quot;cobbled together&quot; by evolution.<a href="http://www.jimmunol.org/cgi/content/full/165/4/1725" target="_blank" rel="external">[4]</a> If this is true, no single theory can explain the function of the system as a whole. For both of these reasons, Matzinger has had to defend her larger theory, but also has had to defend the value of grand theory itself.
+
+<h2>[<a style="text-decoration:none;color:rgb(6,69,173);background-image:none;background-repeat:initial;background-attachment:initial;background-color:initial;background-position:initial initial;" title="Edit section: Past and current work with dogs">edit</a>]Past and current work with dogs</h2> In one of her first publications, she appeared to have a dog as a <a title="Collaborative writing">coauthor</a> for a paper for the <em>Journal of Experimental Medicine</em><a href="http://www.jem.org/cgi/reprint/148/1/84.pdf" target="_blank" rel="external">[5]</a>. As Ted Anton described the decision in his book <em>Bold Science</em>, &quot;Refusing to write in the usual scientific passive voice ('steps were taken') and too insecure to write in the first person ('I took the steps'), she instead invented [a] coauthor&quot;: her <a>Afghan Hound</a>, Galadriel Mirkwood.<a>[2<span>]</span></a> Once discovered, papers on which she was a major author were then barred from the journal until the editor died and was replaced by another.
+
+Although no dogs have been coauthors of any of her recent papers, she is an avid sheepdog trainer, and, with her two <a title="Border Collie">Border Collies</a>, Charlie and Lily, was on the team that represented the United States at the 2005 World Sheepdog Finals in Tullamore, Ireland.
+
+<h2>[<a style="text-decoration:none;color:rgb(6,69,173);background-image:none;background-repeat:initial;background-attachment:initial;background-color:initial;background-position:initial initial;" title="Edit section: Publications">edit</a>]Publications</h2>
+
+<ul>
+<li>Matzinger, P. and Mirkwood, G. (1978). <a href="http://www.jem.org/cgi/content/abstract/148/1/84" target="_blank" rel="external">In a fully H-2 incompatible chimera, T cells of donor origin can respond to minor histocompatibility antigens in association with either donor or host H-2 type</a>. <em>Journal of Experimental Medicine</em>, <strong>148</strong>, 84-92.</li>
+<li>Lassila, O., Vainio, O. and Matzinger, P. (1988). Can <a title="B cell">B cells</a> turn on virgin T cells? <em>Nature</em>, <strong>334</strong>, 253-255. (the article in which &quot;professional antigen presenting cells&quot; were first named)</li>
+<li>Fuchs, E., and Matzinger, P. B. (1992). B cells turn off virgin but not <a title="Memory T cells">memory T cells</a>. <em>Science</em>, <strong>258</strong>, 1156-1159.</li>
+<li>Matzinger, P. (1994). <a href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;amp;db=pubmed&amp;amp;dopt=Abstract&amp;amp;list_uids=8011301&amp;amp;query_hl=2" target="_blank" rel="external">Tolerance, Danger, and the Extended Family</a>. <em>Ann. Reviews of Immunology</em>, <strong>12</strong>, 991-1045.</li>
+<li>Epstein, M. M., DiRosa, F., Jankovic, D., Sher, A., and Matzinger, P. (1995). Successful T cell priming in B cell deficient mice. <em>Journal of Experimental Medicine</em>, <strong>182</strong>, 915-922.</li>
+<li>Di Rosa, F. and Matzinger, P. (1996). Long lasting <a title="Cytotoxic T cell">CD8 T cell</a> memory in the absence of CD4 T cells or B cells. <em>Journal of Experimental Medicine</em>, <strong>183</strong>, 2153-2163.</li>
+<li>Ridge, J.P., Fuchs, E., and Matzinger, P. (1996). Neonatal tolerance revisited: turning on newborn T cells with <a title="Dendritic cell">dendritic cells</a>. <em>Science</em>, <strong>271</strong>, 1723-1726.</li>
+<li>Ridge, J.P., Di Rosa, F. and Matzinger, P. (1998). A conditioned dendritic cell can be a temporal bridge between a CD4+ <a title="T helper cell">T-helper</a> and a T- killer cell. <em>Nature</em>,<strong>393</strong>, 474-478.</li>
+<li>Gallucci, S., Lolkema, M. and Matzinger, P. (1999). Natural adjuvants: Endogenous activators of dendritic cells. <em>Nature Medicine</em>, <strong>5</strong>, 1249-1255.</li>
+<li>Matzinger P. (2002). <a href="http://www.fiu.edu/~ci/danger.pdf" target="_blank" rel="external">The Danger Model: A Renewed Sense of Self</a>. <em>Science</em>, <strong>296</strong>, 301-305.</li>
+<li>Seong, S. and Matzinger, P. (2004). Hydrophobicity, an ancient Damage-associated Molecular Pattern that initiates Innate Immune Responses. <em>Nature Rev. Imm.</em>, <strong>4</strong>, 469-78.</li>
+<li>Matzinger, P. (2007). <a href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=pubmed&amp;amp;list_uids=17179963&amp;amp;cmd=Retrieve&amp;amp;indexed=google" target="_blank" rel="external">Friendly and dangerous signals: is the tissue in control?</a> <em>Nature Immunol</em>,<strong>8</strong>,11-13.</li>
+<li>Ainhoa Perez-Diez, Nathalie T. Joncker, Kyungho Choi, William F. N. Chan, Colin C. Anderson, Olivier Lantz, and Polly Matzinger. (2007). <a href="http://bloodjournal.hematologylibrary.org/cgi/content/abstract/109/12/5346/" target="_blank" rel="external">CD4 cells can be more efficient at tumor rejection than CD8 cells</a>. <em>Blood</em>, <strong>109</strong>, 5346-5354.5346]</li>
+</ul>
+
+<h2>[<a style="text-decoration:none;color:rgb(6,69,173);background-image:none;background-repeat:initial;background-attachment:initial;background-color:initial;background-position:initial initial;" title="Edit section: Films">edit</a>]Films</h2>
+
+<ul>
+<li>Immunity: the inside story. Matzinger P and André Trauneker (1986) (video, 13 min) Award winning animated film for lay people describing the events involved in clearing an influenza infection. Translated into German, French, Spanish. Hoffman <a>La Roche</a> studio, <a title="Basel">Basel, Switzerland</a></li>
+</ul>
+
+<ul>
+<li>A quick look at tissue rejection. Matzinger P. (1991) (Video, 2 min) Animated Film for lay people describing the events that result in rejection of a skin graft. Commissioned by the <a>National Association of Science Writers</a> for a meeting of television producers. NIH special events department and Capitol Studios</li>
+</ul>
+
+<ul>
+<li>Death By Design.<a>[3<span>]</span></a> Peter Friedman and Jean-François Brunet (1995) (Film, 73 minutes) Award winning Film on apoptotic cell death that features the work of six scientists. P Matzinger, R Levy-Montalcini, M Raff, P Golstein, KM Debatin, R Horowitz</li>
+</ul>
+
+<ul>
+<li>Turned on by Danger. <a>Michael Mosley</a> (1997) (Film, 60 minutes) a ‘Horizon’ program made for <a title="Public broadcasting">public television</a> featuring and delineating the Danger model. <a title="BBC">British Broadcasting Corporation</a></li>
+</ul>
+
+<ul>
+<li>Microbe Invasion. <a title="David Green (director)">David Green</a> (2001) (Film 60 minutes) a program describing the interrelationship between <a title="Human anatomy">human bodies</a> and the multitude of organisms that live on and within them. The film features the Danger model as the model of immunity that best allows for <a title="Symbiosis">symbiotic relationships</a> within the body. <a title="TLC (TV channel)">The Learning Channel</a></li>
+</ul>
+
+<h2>[<a style="text-decoration:none;color:rgb(6,69,173);background-image:none;background-repeat:initial;background-attachment:initial;background-color:initial;background-position:initial initial;" title="Edit section: External links">edit</a>]External links</h2>
+
+<ul>
+<li><a href="http://www3.niaid.nih.gov/labs/aboutlabs/lcmi/tCellToleranceMemorySection/matzinger.htm" target="_blank" rel="external">Matzinger's laboratory homepage</a>, (<a title="NIAID">NIAID</a>, <a title="NIH">NIH</a>)</li>
+<li><a href="http://bjo.bmjjournals.com/cgi/content/full/81/11/934" target="_blank" rel="external">Matzinger profile</a> in the <em>British Journal of Ophthalmology</em></li>
+<li><a href="http://www.the-scientist.com/yr2003/may/upfront10_030505.html" target="_blank" rel="external">&quot;My Scientific Sins&quot; item</a> in <em>The Scientist</em> magazine</li>
+<li><a href="http://www.arthritis.org/resources/arthritistoday/1999_archives/1999_03_04polly.asp" target="_blank" rel="external">Matzinger profile</a> in <em>Arthritis Today</em></li>
+<li><a href="http://www.schering-fg.de/html/l2005_matzinger.html" target="_blank" rel="external">An innate sense of Danger</a></li>
+</ul>
+
+<h2>[<a style="text-decoration:none;color:rgb(6,69,173);background-image:none;background-repeat:initial;background-attachment:initial;background-color:initial;background-position:initial initial;" title="Edit section: References">edit</a>]References</h2>
+
+<ol>
+<li><strong><a>^</a></strong> <a href="http://www.schering-fg.de/html/files/pdf/matzinger.pdf" target="_blank" rel="external"><em>Curriculum vitae</em></a></li>
+<li><strong><a>^</a></strong> <a href="http://www.whfreeman.com/generalreaders/book.asp?1149000084" target="_blank" rel="external">Anton, Ted. Bold Science: Seven Scientists Who Are Changing Our World. New York: WH Freeman, 2000.</a></li>
+<li><strong><a>^</a></strong> <a href="http://www.strange-attractions.com/films/death-by-design/" target="_blank" rel="external">http://www.strange-attractions.com/films/death-by-design/</a> (Death by Design home page)</li>
+</ol>
+
+<a title="Special:Categories">Categories</a>: <a title="Category:Immunologists">Immunologists</a> | <a title="Category:Women biologists">Women biologists</a> | <a title="Category:Living people">Living people</a> | <a title="Category:1947 births">1947 births</a>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Uncategorized</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2011/02/27/polly-matzinger-and-her-danger-model/">展开全文 >></a>
         </p>
       
 
@@ -994,214 +1557,6 @@ Information on the adventure call is available at www.epsrc.ac.uk
 
 
   
-    <article id="post-polly-matzinger-and-her-danger-model" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2011/02/27/polly-matzinger-and-her-danger-model/">Polly Matzinger and her Danger Model</a>
-    </h1>
-  
-
-        
-        <a href="/2011/02/27/polly-matzinger-and-her-danger-model/" class="archive-article-date">
-  	<time datetime="2011-02-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2011-02-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <table cellspacing="0" cellpadding="0" width="100%">
-<tr>
-<td><h3><a href="http://www.evernote.com/" target="_blank" rel="external">From Evernote:</a></h3></td>
-</tr>
-<tr>
-<td><h1>Polly Matzinger</h1> Clipped from: <a href="http://en.wikipedia.org/wiki/Polly_Matzinger" target="_blank" rel="external">http://en.wikipedia.org/wiki/Polly_Matzinger</a></td>
-</tr>
-</table>
-
-<h1>Polly Matzinger</h1>From Wikipedia, the free encyclopedia
-<a><img height="181" src="http://upload.wikimedia.org/wikipedia/en/thumb/b/b7/Polly_&amp;amp;_Annie.jpg/220px-Polly_&amp;amp;_Annie.jpg" width="220" alt="220px-Polly_&amp;amp;_Annie.jpg"></a><a title="Enlarge"><img src="http://jackeylu.files.wordpress.com/2011/02/4eb85e24f8668f4abb644f8080933908.png" alt="" title="4eb85e24f8668f4abb644f8080933908" width="15" height="11" class="alignnone size-full wp-image-212"></a>
-Polly &amp; Annie
-
-<strong>Polly Celine Eveline Matzinger</strong> (born 21 July 1947) is an <a title="Iconoclasm">iconoclastic</a> scientist who proposed a novel explanation of how the<a>immune system</a> works, called the <em>danger model</em>.
-
-<table><tbody>
-<tr>
-<td><h2>Contents</h2> [<a style="text-decoration:none;color:rgb(6,69,173);background-image:none;background-repeat:initial;background-attachment:initial;background-color:initial;background-position:initial initial;">hide</a>]
-
-<ul>
-<li><a>1 Early years</a></li>
-<li><a>2 Ghost Lab at NIAID</a></li>
-<li><a>3 The Danger Model</a>
-
-<ul>
-<li><a>3.1 Danger signals</a></li>
-<li><a>3.2 Scope</a></li>
-</ul>
-
-</li>
-<li><a>4 Pattern recognition and a tissue-driven immune system</a></li>
-<li><a>5 Challenges to Matzinger's theories</a></li>
-<li><a>6 Past and current work with dogs</a></li>
-<li><a>7 Publications</a></li>
-<li><a>8 Films</a></li>
-<li><a>9 External links</a></li>
-<li><a>10 References</a></li>
-</ul>
-
-</td>
-</tr>
-</tbody>
-</table>
-
-<h2>[<a style="text-decoration:none;color:rgb(6,69,173);background-image:none;background-repeat:initial;background-attachment:initial;background-color:initial;background-position:initial initial;" title="Edit section: Early years">edit</a>]Early years</h2> Polly Matzinger took to science from an unusual background career path which included stints as a <a>Playboy Bunny</a> at a <a>Playboy</a> Club in <a>Denver</a>, a bar <a title="Waitress">waitress</a>, a <a>jazz</a>musician, a <a title="Carpenter">carpenter</a> and <a>dog trainer</a>. In 1974 Polly Matzinger had dropped in and out of college for years and worked at various jobs before ending up waitressing at a bar frequented by faculty from the <a title="University of California, Davis">University of California, at Davis</a> and here she met Professor Robert Schwab, the head of the University's <a title="Nature documentary">wildlife program</a> who noticed her talent and persuaded her to take to science.<a>[1<span>]</span></a>
-
-She eventually went to the <a>University of California, San Diego</a> for her Ph.D., did post-doctoral work at the <a>University of Cambridge</a>, and was a scientist at the <a>Basel Institute for Immunology</a> before coming to the National Institutes of Health in Bethesda, Maryland.
-
-<h2>[<a style="text-decoration:none;color:rgb(6,69,173);background-image:none;background-repeat:initial;background-attachment:initial;background-color:initial;background-position:initial initial;" title="Edit section: Ghost Lab at NIAID">edit</a>]Ghost Lab at NIAID</h2> Polly Matzinger is now a section head at the <a>National Institute of Allergy and Infectious Diseases</a>. Matzinger and her coworkers refer to the lab's name as the 'Ghost Lab' when listing their affiliation in papers. The nickname was given to the lab by her colleagues when Matzinger first arrived at the NIH because she spent the first nine months studying a new field (Chaos Theory) that she thought might apply to the immune system, and the lab sat empty. The formal name of her laboratory is the T-Cell Tolerance and Memory Section of the Laboratory of Cellular and Molecular Immunology. The ghost lab now hosts 3 post-doctoral researchers .<a href="http://www3.niaid.nih.gov/labs/aboutlabs/lcmi/tCellToleranceMemorySection/" target="_blank" rel="external">[1]</a> From this knowledge pool, approximately 0-3 original research articles are published a year, including original research articles and theoretical pieces. A majority of the publications are her taken-author published works, theoretical in nature and published in very highly cited journals. <a href="http://www.ncbi.nlm.nih.gov/sites/entrez" target="_blank" rel="external">[2]</a>
-
-<h2>[<a style="text-decoration:none;color:rgb(6,69,173);background-image:none;background-repeat:initial;background-attachment:initial;background-color:initial;background-position:initial initial;" title="Edit section: The Danger Model">edit</a>]The Danger Model</h2> The self-non-self model, the predominant model in immunology since the 1950s, began to encounter problems in the late 1980s when immunologists began to recognize that <a title="T-cells">T-cells</a> depend on other cells to pick up and then present the things to which they will respond — and that the <a title="Cell-mediated immunity">T-cell response</a> depends on whether the other cell (known as <a title="Antigen-presenting cells">antigen-presenting cells</a>) is sending activation signals to the T-cells.
-
-In 1989, drawing on the ideas of <a>Thomas Kuhn</a>, <a>Charles Janeway</a> proposed that the old immunological paradigm had reached the limits of its usefulness—or, as he described it, the <a>asymptote</a> of the increase in knowledge which it had brought. Janeway argued that the innate immune system was the real gatekeeper of whether the immune system responded or did not respond. He also argued that the innate immune system used ancient pattern-recognition receptors to make these decisions - recognizing a <a>pathogen</a> by its unchanging characteristics.
-
-<h3>[<a style="text-decoration:none;color:rgb(6,69,173);background-image:none;background-repeat:initial;background-attachment:initial;background-color:initial;background-position:initial initial;" title="Edit section: Danger signals">edit</a>]Danger signals</h3> In a 1994 article entitled &quot;Tolerance, Danger and the Extended Family&quot;, Matzinger went several steps further by laying out the idea that antigen-presenting cells respond to &quot;danger signals&quot; - most notably from cells undergoing injury, or stress or &quot;bad cell death&quot; (as opposed to <a>apoptosis</a>, controlled <a title="Programmed cell death">cell death</a>). The alarm signals released by these cells let the immune system know that there is a problem requiring an immune response. She argued that T-cells and the immune response they orchestrate occurs not because of a neonatal definition of &quot;self&quot;, as in the previous model, nor because of ancient definitions of pathogens, as in Janeway's argument, but due to a dynamic and constantly-updated response to danger as defined by cellular damage.
-
-<h3>[<a style="text-decoration:none;color:rgb(6,69,173);background-image:none;background-repeat:initial;background-attachment:initial;background-color:initial;background-position:initial initial;" title="Edit section: Scope">edit</a>]Scope</h3> The Danger Model is quite broad, covering topics as diverse as transplantation, maternal/fetal immunity, autoimmunity, cancer treatments, and vaccines, but Matzinger points out that although it offers an explanation of how an immune response is triggered and how it ends, it does not (yet) offer an explanation of why the immune system responds in different ways to different situations. She hypothesizes that tissues send signals to the immune system that determine the immune response appropriate for that tissue, and her lab is now working on experiments to test that hypothesis.
-
-The Danger Model has not won universal acceptance. Some immunologists, following Janeway's ideas more directly, believe that the immune response is mainly fueled by innate evolutionarily-conserved &quot;pattern recognition receptors&quot; which recognize patterns expressed by microbes such as bacteria, and do not see cell death in the absence of pathogens as a primary driver of immune response. These ideas however, do not explain how the immune system rejects transplants (most well-done transplants are not covered in bacteria), or tumors, or induce <a title="Autoimmunity">autoimmune diseases</a>.
-
-<h2>[<a style="text-decoration:none;color:rgb(6,69,173);background-image:none;background-repeat:initial;background-attachment:initial;background-color:initial;background-position:initial initial;" title="Edit section: Pattern recognition and a tissue-driven immune system">edit</a>]Pattern recognition and a tissue-driven immune system</h2> Recently, Seong and Matzinger have suggested that the &quot;patterns&quot; that the immune system recognizes on bacteria are not as different from the alarm signals released by damaged cells as one might have thought. They suggested that, because life evolved in water, the hydrophobic portions (Hyppos) of molecules are normally hidden in the internal parts of molecules or other structures (like membranes) and that the sudden exposure of a Hyppo is a sure sign that some injury or damage has occurred. They suggested that these are the most ancient alarm signals, that they are recognized by evolutionarily ancient systems of repair and remodeling, and that the modern immune system piggy-backed on this ancient system. Thus bacteria and other organisms may have very similar alarm systems. They describe these ancient signals as Danger-associated molecular patterns, or DAMPs.
-
-In a recent article in Nature Immunology <a href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=pubmed&amp;amp;list_uids=17179963&amp;amp;cmd=Retrieve&amp;amp;indexed=google" target="_blank" rel="external">[3]</a>, Matzinger makes a case for what she now views as the most important implication of the Danger Model: that the tissues of the body are a large part of what drive immune response. She argues that immunologists have had overly simplistic and schematic ideas about immune response because of the limits of their assays, and that organs are likely to induce immune responses that are best-suited to defending the organ from the damage of microbes<em>but also</em> from the damage of the immune system itself. She also asserts that the relationship of the immune system to <a title="Commensal">commensal</a> bacteria remains poorly understood but is likely to be important.
-
-Matzinger argues that the idea of DAMPs may explain why <a title="Toll-like receptor">Toll-like receptors</a> seem to respond both to external and <a title="Toll-like receptor">endogenous</a> signals (while acknowledging controversy over this issue). By emphasizing her theory that the tissues drive the nature of the immune response (i.e., the &quot;what type&quot; rather than the &quot;whether&quot; of immune response), Matzinger describes a dynamic immune system with complex webs of signalling, rather than an immune system that can be explained by a simple and easily reducible set of molecular signals that initiate response, or by a small set of cells (e.g., &quot;regulatory&quot; T-cells) which shut it down.
-
-<h2>[<a style="text-decoration:none;color:rgb(6,69,173);background-image:none;background-repeat:initial;background-attachment:initial;background-color:initial;background-position:initial initial;" title="Edit section: Challenges to Matzinger's theories">edit</a>]Challenges to Matzinger's theories</h2> There is now a growing body of work on &quot;regulatory T-cells&quot; which argues that immune activity is stopped by a special subset of T-cells. These ideas challenge several of the key specifics of Matzinger's model.
-
-A student sitting in an immunology class today will likely hear many phrases coined by Matzinger (like &quot;professional antigen-presenting-cell&quot; or &quot;danger signal&quot; or &quot;DAMPs&quot; (damage associated molecular patterns&quot;) but will often hear them in the framework of a self-non-self explanation of immunity. Other immunologists have often adapted parts of Matzinger's ideas without adopting the Danger Model as a theoretical framework.
-
-Indeed, in an era of increasingly detailed molecular work, many immunologists simply avoid constructing an alternative broad theory of immune function. Others believe that the immune system is not a single system at all, and is instead a set of mechanisms &quot;cobbled together&quot; by evolution.<a href="http://www.jimmunol.org/cgi/content/full/165/4/1725" target="_blank" rel="external">[4]</a> If this is true, no single theory can explain the function of the system as a whole. For both of these reasons, Matzinger has had to defend her larger theory, but also has had to defend the value of grand theory itself.
-
-<h2>[<a style="text-decoration:none;color:rgb(6,69,173);background-image:none;background-repeat:initial;background-attachment:initial;background-color:initial;background-position:initial initial;" title="Edit section: Past and current work with dogs">edit</a>]Past and current work with dogs</h2> In one of her first publications, she appeared to have a dog as a <a title="Collaborative writing">coauthor</a> for a paper for the <em>Journal of Experimental Medicine</em><a href="http://www.jem.org/cgi/reprint/148/1/84.pdf" target="_blank" rel="external">[5]</a>. As Ted Anton described the decision in his book <em>Bold Science</em>, &quot;Refusing to write in the usual scientific passive voice ('steps were taken') and too insecure to write in the first person ('I took the steps'), she instead invented [a] coauthor&quot;: her <a>Afghan Hound</a>, Galadriel Mirkwood.<a>[2<span>]</span></a> Once discovered, papers on which she was a major author were then barred from the journal until the editor died and was replaced by another.
-
-Although no dogs have been coauthors of any of her recent papers, she is an avid sheepdog trainer, and, with her two <a title="Border Collie">Border Collies</a>, Charlie and Lily, was on the team that represented the United States at the 2005 World Sheepdog Finals in Tullamore, Ireland.
-
-<h2>[<a style="text-decoration:none;color:rgb(6,69,173);background-image:none;background-repeat:initial;background-attachment:initial;background-color:initial;background-position:initial initial;" title="Edit section: Publications">edit</a>]Publications</h2>
-
-<ul>
-<li>Matzinger, P. and Mirkwood, G. (1978). <a href="http://www.jem.org/cgi/content/abstract/148/1/84" target="_blank" rel="external">In a fully H-2 incompatible chimera, T cells of donor origin can respond to minor histocompatibility antigens in association with either donor or host H-2 type</a>. <em>Journal of Experimental Medicine</em>, <strong>148</strong>, 84-92.</li>
-<li>Lassila, O., Vainio, O. and Matzinger, P. (1988). Can <a title="B cell">B cells</a> turn on virgin T cells? <em>Nature</em>, <strong>334</strong>, 253-255. (the article in which &quot;professional antigen presenting cells&quot; were first named)</li>
-<li>Fuchs, E., and Matzinger, P. B. (1992). B cells turn off virgin but not <a title="Memory T cells">memory T cells</a>. <em>Science</em>, <strong>258</strong>, 1156-1159.</li>
-<li>Matzinger, P. (1994). <a href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;amp;db=pubmed&amp;amp;dopt=Abstract&amp;amp;list_uids=8011301&amp;amp;query_hl=2" target="_blank" rel="external">Tolerance, Danger, and the Extended Family</a>. <em>Ann. Reviews of Immunology</em>, <strong>12</strong>, 991-1045.</li>
-<li>Epstein, M. M., DiRosa, F., Jankovic, D., Sher, A., and Matzinger, P. (1995). Successful T cell priming in B cell deficient mice. <em>Journal of Experimental Medicine</em>, <strong>182</strong>, 915-922.</li>
-<li>Di Rosa, F. and Matzinger, P. (1996). Long lasting <a title="Cytotoxic T cell">CD8 T cell</a> memory in the absence of CD4 T cells or B cells. <em>Journal of Experimental Medicine</em>, <strong>183</strong>, 2153-2163.</li>
-<li>Ridge, J.P., Fuchs, E., and Matzinger, P. (1996). Neonatal tolerance revisited: turning on newborn T cells with <a title="Dendritic cell">dendritic cells</a>. <em>Science</em>, <strong>271</strong>, 1723-1726.</li>
-<li>Ridge, J.P., Di Rosa, F. and Matzinger, P. (1998). A conditioned dendritic cell can be a temporal bridge between a CD4+ <a title="T helper cell">T-helper</a> and a T- killer cell. <em>Nature</em>,<strong>393</strong>, 474-478.</li>
-<li>Gallucci, S., Lolkema, M. and Matzinger, P. (1999). Natural adjuvants: Endogenous activators of dendritic cells. <em>Nature Medicine</em>, <strong>5</strong>, 1249-1255.</li>
-<li>Matzinger P. (2002). <a href="http://www.fiu.edu/~ci/danger.pdf" target="_blank" rel="external">The Danger Model: A Renewed Sense of Self</a>. <em>Science</em>, <strong>296</strong>, 301-305.</li>
-<li>Seong, S. and Matzinger, P. (2004). Hydrophobicity, an ancient Damage-associated Molecular Pattern that initiates Innate Immune Responses. <em>Nature Rev. Imm.</em>, <strong>4</strong>, 469-78.</li>
-<li>Matzinger, P. (2007). <a href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=pubmed&amp;amp;list_uids=17179963&amp;amp;cmd=Retrieve&amp;amp;indexed=google" target="_blank" rel="external">Friendly and dangerous signals: is the tissue in control?</a> <em>Nature Immunol</em>,<strong>8</strong>,11-13.</li>
-<li>Ainhoa Perez-Diez, Nathalie T. Joncker, Kyungho Choi, William F. N. Chan, Colin C. Anderson, Olivier Lantz, and Polly Matzinger. (2007). <a href="http://bloodjournal.hematologylibrary.org/cgi/content/abstract/109/12/5346/" target="_blank" rel="external">CD4 cells can be more efficient at tumor rejection than CD8 cells</a>. <em>Blood</em>, <strong>109</strong>, 5346-5354.5346]</li>
-</ul>
-
-<h2>[<a style="text-decoration:none;color:rgb(6,69,173);background-image:none;background-repeat:initial;background-attachment:initial;background-color:initial;background-position:initial initial;" title="Edit section: Films">edit</a>]Films</h2>
-
-<ul>
-<li>Immunity: the inside story. Matzinger P and André Trauneker (1986) (video, 13 min) Award winning animated film for lay people describing the events involved in clearing an influenza infection. Translated into German, French, Spanish. Hoffman <a>La Roche</a> studio, <a title="Basel">Basel, Switzerland</a></li>
-</ul>
-
-<ul>
-<li>A quick look at tissue rejection. Matzinger P. (1991) (Video, 2 min) Animated Film for lay people describing the events that result in rejection of a skin graft. Commissioned by the <a>National Association of Science Writers</a> for a meeting of television producers. NIH special events department and Capitol Studios</li>
-</ul>
-
-<ul>
-<li>Death By Design.<a>[3<span>]</span></a> Peter Friedman and Jean-François Brunet (1995) (Film, 73 minutes) Award winning Film on apoptotic cell death that features the work of six scientists. P Matzinger, R Levy-Montalcini, M Raff, P Golstein, KM Debatin, R Horowitz</li>
-</ul>
-
-<ul>
-<li>Turned on by Danger. <a>Michael Mosley</a> (1997) (Film, 60 minutes) a ‘Horizon’ program made for <a title="Public broadcasting">public television</a> featuring and delineating the Danger model. <a title="BBC">British Broadcasting Corporation</a></li>
-</ul>
-
-<ul>
-<li>Microbe Invasion. <a title="David Green (director)">David Green</a> (2001) (Film 60 minutes) a program describing the interrelationship between <a title="Human anatomy">human bodies</a> and the multitude of organisms that live on and within them. The film features the Danger model as the model of immunity that best allows for <a title="Symbiosis">symbiotic relationships</a> within the body. <a title="TLC (TV channel)">The Learning Channel</a></li>
-</ul>
-
-<h2>[<a style="text-decoration:none;color:rgb(6,69,173);background-image:none;background-repeat:initial;background-attachment:initial;background-color:initial;background-position:initial initial;" title="Edit section: External links">edit</a>]External links</h2>
-
-<ul>
-<li><a href="http://www3.niaid.nih.gov/labs/aboutlabs/lcmi/tCellToleranceMemorySection/matzinger.htm" target="_blank" rel="external">Matzinger's laboratory homepage</a>, (<a title="NIAID">NIAID</a>, <a title="NIH">NIH</a>)</li>
-<li><a href="http://bjo.bmjjournals.com/cgi/content/full/81/11/934" target="_blank" rel="external">Matzinger profile</a> in the <em>British Journal of Ophthalmology</em></li>
-<li><a href="http://www.the-scientist.com/yr2003/may/upfront10_030505.html" target="_blank" rel="external">&quot;My Scientific Sins&quot; item</a> in <em>The Scientist</em> magazine</li>
-<li><a href="http://www.arthritis.org/resources/arthritistoday/1999_archives/1999_03_04polly.asp" target="_blank" rel="external">Matzinger profile</a> in <em>Arthritis Today</em></li>
-<li><a href="http://www.schering-fg.de/html/l2005_matzinger.html" target="_blank" rel="external">An innate sense of Danger</a></li>
-</ul>
-
-<h2>[<a style="text-decoration:none;color:rgb(6,69,173);background-image:none;background-repeat:initial;background-attachment:initial;background-color:initial;background-position:initial initial;" title="Edit section: References">edit</a>]References</h2>
-
-<ol>
-<li><strong><a>^</a></strong> <a href="http://www.schering-fg.de/html/files/pdf/matzinger.pdf" target="_blank" rel="external"><em>Curriculum vitae</em></a></li>
-<li><strong><a>^</a></strong> <a href="http://www.whfreeman.com/generalreaders/book.asp?1149000084" target="_blank" rel="external">Anton, Ted. Bold Science: Seven Scientists Who Are Changing Our World. New York: WH Freeman, 2000.</a></li>
-<li><strong><a>^</a></strong> <a href="http://www.strange-attractions.com/films/death-by-design/" target="_blank" rel="external">http://www.strange-attractions.com/films/death-by-design/</a> (Death by Design home page)</li>
-</ol>
-
-<a title="Special:Categories">Categories</a>: <a title="Category:Immunologists">Immunologists</a> | <a title="Category:Women biologists">Women biologists</a> | <a title="Category:Living people">Living people</a> | <a title="Category:1947 births">1947 births</a>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Uncategorized</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2011/02/27/polly-matzinger-and-her-danger-model/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-keyboard-shortchuts-for-thunderbird" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1247,201 +1602,6 @@ Although no dogs have been coauthors of any of her recent papers, she is an avid
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2011/02/25/keyboard-shortchuts-for-thunderbird/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-order-of-authorship" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2011/02/24/order-of-authorship/">Order of authorship</a>
-    </h1>
-  
-
-        
-        <a href="/2011/02/24/order-of-authorship/" class="archive-article-date">
-  	<time datetime="2011-02-23T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2011-02-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <img class="alignnone" title="量子统计" src="http://img.tongji.linezing.com/2302080/tongji.gif" alt="" width="16" height="16">
-
-Order of authorship
-
-The first author is primarily responsible for collecting and analyzing data, and writing
-The last one, an established investigator, assumes the overall responsibility for the study
-The middle authors are listed according to their order of importance to the study.
-
-Another more strict definition of authorship is as follows:
-
-Authorship credit should be based on
-substantial contributions to conception and design, or acquisition of data, or analysis and interpretation of data;
-drafting the article or revising it critically for important intellectual content;
-final approval of the version to be published.
-
-Authors should meet conditions 1, 2, and 3. Those who have participated in certain substantive aspects of the research project should be acknowledged or listed as contributors. Acquisition of funding, collection of data, or general supervision of the research group, alone, does not justify authorship.
-
-Each author should have sufficiently participated in the work to take public responsibilities for appropriate portions of the content. The corresponding author should ensure that all appropriate co-authors and no inappropriate co-authors are included on the paper. If there is plagiarism or other ethical problems, the corresponding author cannot hide behind or remain innocent.
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Uncategorized</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Ethics and Responsibilities</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">research</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2011/02/24/order-of-authorship/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-《软件调试的艺术》学习笔记——gdb使用技巧摘要3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2011/02/24/《软件调试的艺术》学习笔记——gdb使用技巧摘要3/">《软件调试的艺术》学习笔记——GDB使用技巧摘要(3)——程序崩溃处理</a>
-    </h1>
-  
-
-        
-        <a href="/2011/02/24/《软件调试的艺术》学习笔记——gdb使用技巧摘要3/" class="archive-article-date">
-  	<time datetime="2011-02-23T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2011-02-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol> <li>程序为什么会崩溃</li> <li>内存中的程序布局</li> </ol> <p>当某个错误导致程序突然和异常地停止执行时，程序崩溃。迄今为止最为常见的导致程序崩溃的原因是试图在未经允许的情况下访问一个内存位置。硬件会感知这件事，并执行对操作系统的跳转。Unix系列的平台上，操作系统一般会宣布程序导致了段错误（seg <br>fault），并停止程序运行。在微软的windows系统上，对应的术语是一般保护错误（general protection <br>fault）。无论是哪个名称，硬件都必须支持虚拟内存，而且操作系统必须使用虚拟内存才会发生这个错误。虽然这是如今的通用计算机的标准，但是读者应记住，专用的小型计算机一般没有这种情况，比如用来控制机器的嵌入式计算机。</p> <p>程序在内存中是如何分布的？</p> <p>在Unix平台上，为程序分配的虚拟地址的布局通常如下：</p> <table width="169" style="width:169px;height:231px;"> <tbody> <tr> <td> <p style="text-align:center;">.text</p> </td> </tr> <tr> <td> <p style="text-align:center;">.data</p> </td> </tr> <tr> <td> <p style="text-align:center;">.bss</p> </td> </tr> <tr> <td> <p style="text-align:center;">堆</p> </td> </tr> <tr> <td> <p style="text-align:center;">↓</p> <p style="text-align:center;">未使用</p> <p style="text-align:center;">↑</p> </td> </tr> <tr> <td> <p style="text-align:center;">栈</p> </td> </tr> <tr> <td> <p style="text-align:center;">env</p> </td> </tr> </tbody> </table> <p>这里虚拟地址0在最下方，箭头显示了其中两个组件（堆和栈）的增长方向，当它们增长时，消耗掉未使用的自由区域。各个部分的作用如下：</p> <ul> <li>文本区域(.text)，由程序源代码中的编译器产生的机器指令组成。这一组件包括静态链接代码，包括做初始化工作然后调用main（）的系统代码/usr/lib/crt0.o</li> <li>.data 数据区域，包含在编译时分配的所有程序变量，即全局变量。如 int x = 5;</li> <li>.bss 数据区域，包含的是存放未初始化数据的全局变量，如 int y;</li> <li>当程序在运行时从操作系统请求额外的内存时（例如，C语言中调用malloc，或者C++中的new），请求的内存在名为堆（heap）的区域中分配。如果堆空间不足，可以通过调用brk()来扩展堆（这正是malloc及相关函数所做的事情）</li> <li>栈区域（stack），是用来动态分配数据的空间。函数调用的数据（包括参数、局部变量和返回地址）都存储在栈上。每次进行函数调用时栈都会增长，每次函数返回到其调用者时栈都会收缩。</li> <li>上图没有显示程序的动态链接代码，它的位置与平台相关，但是它确实在某个地方存在，而且在每种操作系统上，虚拟内存中关于动态链接代码的地址是有规律的。</li> </ul> <div class="c"> <ol> <li class="li1"> <div class="de1"><code><span class="kw4">int</span> q<span class="br0">[</span> <span class="nu0">200</span> <span class="br0">]</span> <span class="sy0">;</span></code></div> </li> <li class="li1"> <div class="de1"> </div></li> <li class="li1"> <div class="de1"><span class="kw4">int</span> main<span class="br0">(</span> <span class="kw4">void</span> <span class="br0">)</span> <span class="br0">{</span></div> </li> <li class="li1"> <div class="de1"><span class="kw4">int</span> i<span class="sy0">,</span>n<span class="sy0">,</span> <span class="sy0">*</span>p<span class="sy0">;</span></div> </li> <li class="li2"> <div class="de2">p <span class="sy0">=</span> malloc<span class="br0">(</span> <span class="kw4">sizeof</span> <span class="br0">(</span> <span class="kw4">int</span> <span class="br0">)</span> <span class="br0">)</span> <span class="sy0">;</span></div> </li> <li class="li1"> <div class="de1">scanf<span class="br0">(</span> <span class="st0">"%d"</span> <span class="sy0">,</span> <span class="sy0">&amp;</span>n<span class="br0">)</span> <span class="sy0">;</span></div> </li> <li class="li1"> <div class="de1"><span class="kw1">for</span> <span class="br0">(</span>i <span class="sy0">=</span> <span class="nu0">0</span> <span class="sy0">;</span> i <span class="sy0">&lt;</span> <span class="nu0">200</span> <span class="sy0">;</span> i<span class="sy0">++</span> <span class="br0">)</span></div> </li> <li class="li1"> <div class="de1">q<span class="br0">[</span>i<span class="br0">]</span> <span class="sy0">=</span> i<span class="sy0">;</span></div> </li> <li class="li1"> <div class="de1"> </div></li> <li class="li2"> <div class="de2"><a href="http://www.opengroup.org/onlinepubs/009695399/functions/printf.html" target="_blank" rel="external"><span class="kw3">printf</span></a> <span class="br0">(</span> <span class="st0">"%x %x %x %x %x<span class="es1">\n</span>"</span> <span class="sy0">,</span> main<span class="sy0">,</span> q<span class="sy0">,</span> p<span class="sy0">,</span> <span class="sy0">&amp;</span>i<span class="sy0">,</span> scanf<span class="br0">)</span> <span class="sy0">;</span></div> </li> <li class="li1"> <div class="de1"> </div></li> <li class="li1"> <div class="de1"><span class="kw1">return</span> <span class="nu0">0</span> <span class="sy0">;</span></div> </li> <li class="li1"> <div class="de1"><span class="br0">}</span></div> </li> </ol> </div> <p class="de1">虽然上述程序本身作用不大，但是可以编写成一个工具来非正式地探索虚拟地址空间的布局。运行结果可能如下：</p> <p class="de1">% a.out</p> <p class="de1">5</p> <p class="de1">80483f4 80496a0 9835008 bfb3abec 8048304</p> <p class="de1">分别对应于文本区域、数据区域、堆、栈和动态链接函数位置。</p> <p class="de1">另外可以通过查看这一过程的maps文件来得到程序在linux上的精确内存布局情况。加入进程号是21111，那么查看的文件应该是/proc/21111/maps</p> <p class="de1"> </p> <p class="de1"><strong><span style="font-size:18px;"><strong>页的概念</strong></span></strong></p> <p class="de1">虚拟地址空间是通过坐直成成为页(page)的块来查看的。在pentium硬件上，默认的页大小是4096字节。物理内存（包括RAM和ROM）也都是分成页来查看的。当程序被加载到内存中执行时，操作系统会安排程序的部分页存储在物理内存的页中。这些页成为被"驻留"，其余部分存储在磁盘上。</p> <p class="de1">在执行期间的各个阶段，将需要一些当前没有驻留的程序页。当发生这种情况的时候，硬件会感知到，将控制权转移给操作系统。后者将所需页带到内存中，可能会替换掉当前驻留的另一个程序页（如果没有可用的自由内存页），然后将控制权返回给程序。如果有被驱逐的程序页，就会变成非驻留页，被存储在磁盘上。</p> <p class="de1">为了管理所有这些操作，操作系统为每个过程设立了一个页表（page table）。（pentium的页表有一个层次结构，但是为了简单起见，假定只有一层，而且这里讨论的大多数内容都不是pentium特有的。）这一过程的每个虚拟页在表中都有对应的一个项（entry），其中包括如下信息：</p> <ul> <li> <div class="de1">这个页在内存中或者磁盘上的当前物理位置。如果是在磁盘上，页表对应的项会指示页是非驻留的，可能包含一个指针，指向最终导致磁盘上的物理位置的一个列表。例如，它可能显示：程序的虚拟页12是驻留的，位于内存的物理页200中。</div> </li> <li> <div class="de1">该页的权限分为3种：读、写和执行</div> </li> </ul> <p class="de1">注意：<strong>操作系统不会将不完整的页分配给程序</strong>。例如，如果要运行的程序总共有10 000字节，如果完全加载，会占用3个内存页（3*4096），不会是占用2.5个页，因为页是虚拟内存系统能够操作的最小内存单元。<strong>这是调试时要记住的很重要的一点，因为这一点暗示了程序的一些错误内存访问不会触发段错误。</strong>换言之，在调试会话期间，不能这么想："这行代码一定没有问题，因为它没有引起段错误。"</p> <p class="de1"> </p>
-        
-          <a class="article-more-a" href="/2011/02/24/《软件调试的艺术》学习笔记——gdb使用技巧摘要3/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tool utils</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">gdb</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">segment fault</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">virtual memory</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">VMM</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2011/02/24/《软件调试的艺术》学习笔记——gdb使用技巧摘要3/">展开全文 >></a>
         </p>
       
 
@@ -1576,11 +1736,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">木兰天池</a>
+                <a href="javascript:void(0)" class="js-tag color3">生活</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生活</a>
+                <a href="javascript:void(0)" class="js-tag color5">木兰天池</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1612,7 +1772,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">slideshare</a>
+                <a href="javascript:void(0)" class="js-tag color4">jimmy，漫画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">情感</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1636,15 +1800,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jimmy，漫画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">情感</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Google</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Ethics and Responsibilities</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">research</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">slideshare</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1668,14 +1836,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Ethics and Responsibilities</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">research</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">segment fault</a>
               </li>
              
@@ -1689,18 +1849,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pthreads</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">bibliography</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">entry type</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tex</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1736,15 +1884,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">bibliography</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">entry type</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">tex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">清明 生命 初生</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">开学典礼</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">武汉大学</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1780,6 +1932,14 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">开学典礼</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">武汉大学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">company</a>
               </li>
              
@@ -1808,14 +1968,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">macro leveldb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Jekyll, theme</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
               </li>
              
@@ -1832,23 +1984,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">std</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">boost</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">bind</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">c++11</a>
+                <a href="javascript:void(0)" class="js-tag color4">macro leveldb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1872,11 +2008,27 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">manage finances</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Full Stack Developer</a>
+                <a href="javascript:void(0)" class="js-tag color4">std</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">boost</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">bind</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">c++11</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">manage finances</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1908,6 +2060,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Full Stack Developer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">thingking</a>
               </li>
              
@@ -1916,11 +2072,23 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Jekyll, theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">sorted</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">comparing</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">software list</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">list</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1936,23 +2104,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">software list</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">list</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jekyll</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">tabobao source</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1964,11 +2120,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">json</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">programming</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">readable code</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1984,10 +2148,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Alternative operator</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">initialization list</a>
               </li>
              
@@ -1996,7 +2156,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">readable code</a>
+                <a href="javascript:void(0)" class="js-tag color5">game</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">sensors</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Alternative operator</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2012,15 +2180,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">game</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">sensors</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">career</a>
+                <a href="javascript:void(0)" class="js-tag color3">optimization</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2028,15 +2188,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">optimization</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">chicken soup</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">self active</a>
+                <a href="javascript:void(0)" class="js-tag color2">career</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2061,6 +2213,14 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">cpplint</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">chicken soup</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">self active</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2101,6 +2261,22 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">诊股</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">firework</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">gfw</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mirrors</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">

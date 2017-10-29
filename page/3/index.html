@@ -156,27 +156,37 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-stl-swap-trick" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-reading-report-pagerank-on-a-evolving-graph" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/04/15/stl-swap-trick/">The Art of Readable Code</a>
+      <a class="article-title" href="/2015/05/04/reading-report-pagerank-on-a-evolving-graph/">PageRank on an Evolving Graph</a>
     </h1>
   
 
         
-        <a href="/2015/04/15/stl-swap-trick/" class="archive-article-date">
-  	<time datetime="2015-04-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-04-15</time>
+        <a href="/2015/05/04/reading-report-pagerank-on-a-evolving-graph/" class="archive-article-date">
+  	<time datetime="2015-05-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-05-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Recorder</span> &#123;</span></div><div class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">float</span>&gt; data;</div><div class="line">	...</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Clear</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="comment">// Force vector to relinquish its memory (look up "STL swap trick")</span></div><div class="line">		<span class="built_in">vector</span>&lt;<span class="keyword">float</span>&gt;().swap(data);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h1 id="PageRank-on-an-Evolving-Graph"><a href="#PageRank-on-an-Evolving-Graph" class="headerlink" title="PageRank on an Evolving Graph"></a>PageRank on an Evolving Graph</h1><!--
+ @Date    : 2015-05-04 10:40:38
+ @Author  : Jackey Lyu (lvlin@huawei.com)
+ @Link    : http://jackeylu.com 
+ @Version : $Id$
+-->
+<p>这是KDD 2012中的一篇论文，作者是Bahman Bahmani, Ravi Kumar, Mohammad Mahdian, Eli Upfal，<br>是Stanford、Yahoo! Research,Brown Universtiy的合作文章。<br>讲述的问题是：没有办法获得全体数据（或者数据在求解过程中会发生变化）的情况下，<br>如何让阶段性结果的准确性逼近。作者选取PageRank问题和算法在此类输入下进行分析验证。</p>
+<h1 id="背景描述"><a href="#背景描述" class="headerlink" title="背景描述"></a>背景描述</h1><p>Broadly speaking, algorithms for PageRank fall into one of two categories:<br>linear algebraic methods and Monte Carlo methods.</p>
+<p>Algorithms for updating PageRank values upon changes to the network have<br>been proposed in both the broad categories mentioned above.<br>A family of the linear algebraic methods use the “aggregation” idea to<br>efficiently update the PageRank vector.<br>Tong et al. and McSherry also propose algorithms to deal with PageRank updates.</p>
+<p>但这些都是 assume knowledge of all the changes in the network. </p>
+<p>问题的模型最早由Anagnostopoulos et al.提出。<br>In contrast with more traditional computation models such as streaming,<br>property testing, multi-armed-bandits, and dynamic graph models,<br>this model captures both of the two essential properties of large evolving data applications:<br>the input is changing over time without notifying the algorithm,<br>and the only way for the algorithm to learn about these changes<br>(to accordingly update its soultion) is by periodically probing the input in a limited way.<br>Anagnostopoulos et al. formalize this framework and study sorting, selection,<br>and basic graph connectivity problems in this computation model.</p>
 
       
 
@@ -190,11 +200,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">programming</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">reading report</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">readable code</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">dynamic algorithm</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">big data algorithm</a>
         		</li>
       		
 		</ul>
@@ -206,11 +220,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/programming//" class="article-tag-list-link color2">programming</a>
+        			<a href="/categories/algorithm//" class="article-tag-list-link color5">algorithm</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/programming/social-code//" class="article-tag-list-link color2">social code</a>
+        			<a href="/categories/algorithm/dynamic-algorithm//" class="article-tag-list-link color3">dynamic algorithm</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/algorithm/dynamic-algorithm/reading-report//" class="article-tag-list-link color5">reading report</a>
         		</li>
       		
 		</ul>
@@ -219,7 +237,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2015/04/15/stl-swap-trick/">展开全文 >></a>
+          <a class="article-more-a" href="/2015/05/04/reading-report-pagerank-on-a-evolving-graph/">展开全文 >></a>
         </p>
       
 
@@ -329,6 +347,195 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2015/04/15/pitfall-with-initialization-list/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-stl-swap-trick" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/04/15/stl-swap-trick/">The Art of Readable Code</a>
+    </h1>
+  
+
+        
+        <a href="/2015/04/15/stl-swap-trick/" class="archive-article-date">
+  	<time datetime="2015-04-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-04-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Recorder</span> &#123;</span></div><div class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">float</span>&gt; data;</div><div class="line">	...</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Clear</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="comment">// Force vector to relinquish its memory (look up "STL swap trick")</span></div><div class="line">		<span class="built_in">vector</span>&lt;<span class="keyword">float</span>&gt;().swap(data);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">programming</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">readable code</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/programming//" class="article-tag-list-link color2">programming</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/programming/social-code//" class="article-tag-list-link color2">social code</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/04/15/stl-swap-trick/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-cpp-alternative-operator-representations" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/04/15/cpp-alternative-operator-representations/">Alternative operator representations</a>
+    </h1>
+  
+
+        
+        <a href="/2015/04/15/cpp-alternative-operator-representations/" class="archive-article-date">
+  	<time datetime="2015-04-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-04-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Can this code be compiled?</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">%:include &lt;iostream&gt;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv&lt;::&gt;)</span> </span></div><div class="line">&lt;%</div><div class="line">    <span class="keyword">if</span> (argc &gt; <span class="number">1</span> <span class="keyword">and</span> argv&lt;:<span class="number">1</span>:&gt; not_eq <span class="literal">NULL</span>) &lt;%</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello, "</span> &lt;&lt; argv&lt;:<span class="number">1</span>:&gt; &lt;&lt; <span class="string">'\n'</span>;</div><div class="line">    %&gt;</div><div class="line">%&gt;</div></pre></td></tr></table></figure>
+<p>yes! this is alternative operator representations, see <a href="http://en.cppreference.com/w/cpp/language/operator_alternative" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/operator_alternative</a> for more details.</p>
+<p>It is same with<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">if</span> (argc &gt; <span class="number">1</span> <span class="keyword">and</span> argv[<span class="number">1</span>] != <span class="literal">NULL</span>) &#123;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello, "</span> &lt;&lt; argv[<span class="number">1</span>] &lt;&lt; <span class="string">'\n'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Alternative operator</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/programming//" class="article-tag-list-link color2">programming</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/programming/c//" class="article-tag-list-link color4">c++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/04/15/cpp-alternative-operator-representations/">展开全文 >></a>
         </p>
       
 
@@ -689,6 +896,100 @@
 
 
   
+    <article id="post-install-jekyll-with-tabobao-source" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/03/install-jekyll-with-tabobao-source/">install jekyll with tabobao source</a>
+    </h1>
+  
+
+        
+        <a href="/2015/01/03/install-jekyll-with-tabobao-source/" class="archive-article-date">
+  	<time datetime="2015-01-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-01-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>For the orignial <a href="https://rubygems.org" target="_blank" rel="external">rubygem source</a>, it is hard for me to get the latest gem file from the s3.amazon. But a good news is that, there are some mirrors in the mainland to get the latest gems, such as <a href="http://ruby.taobao.org" target="_blank" rel="external">ruby in taobao</a>.</p>
+<p>Written to mark.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jekyll</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tabobao source</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/jekyll//" class="article-tag-list-link color2">jekyll</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/jekyll/network-source//" class="article-tag-list-link color5">network source</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/01/03/install-jekyll-with-tabobao-source/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-reading-of-real-world-haskell" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -803,100 +1104,6 @@
 
 
   
-    <article id="post-install-jekyll-with-tabobao-source" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/03/install-jekyll-with-tabobao-source/">install jekyll with tabobao source</a>
-    </h1>
-  
-
-        
-        <a href="/2015/01/03/install-jekyll-with-tabobao-source/" class="archive-article-date">
-  	<time datetime="2015-01-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-01-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>For the orignial <a href="https://rubygems.org" target="_blank" rel="external">rubygem source</a>, it is hard for me to get the latest gem file from the s3.amazon. But a good news is that, there are some mirrors in the mainland to get the latest gems, such as <a href="http://ruby.taobao.org" target="_blank" rel="external">ruby in taobao</a>.</p>
-<p>Written to mark.</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jekyll</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tabobao source</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/jekyll//" class="article-tag-list-link color2">jekyll</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/jekyll/network-source//" class="article-tag-list-link color5">network source</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/01/03/install-jekyll-with-tabobao-source/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-macros-in-vim" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -969,207 +1176,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2014/12/28/macros-in-vim/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-comparing-of-two-sorted-containers" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/12/28/comparing-of-two-sorted-containers/">Comparing of two sorted containers</a>
-    </h1>
-  
-
-        
-        <a href="/2014/12/28/comparing-of-two-sorted-containers/" class="archive-article-date">
-  	<time datetime="2014-12-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-12-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="How-to-Find-the-same-and-different-elements-in-two-sorted-containers"><a href="#How-to-Find-the-same-and-different-elements-in-two-sorted-containers" class="headerlink" title="How to Find the same and different elements in two sorted containers?"></a>How to Find the same and different elements in two sorted containers?</h1><h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>Two sorted containers <code>A</code> and <code>B</code>, they have the same element type.</p>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><ol>
-<li>same elements in <code>A</code> and <code>B</code></li>
-<li>elements only in <code>A</code></li>
-<li>elements only in <code>B</code></li>
-</ol>
-<h2 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h2><ol>
-<li>linear time complexity of length <code>A</code> and <code>B</code></li>
-</ol>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Container DA; <span class="comment">// elements only in `A`</span></div><div class="line">Container DB; <span class="comment">// elements only in `B`</span></div><div class="line">Container Same; <span class="comment">// same elements in both</span></div><div class="line"></div><div class="line">Container::size_type i, j;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (i =<span class="number">0</span>, j = <span class="number">0</span>; i &lt; len(A) <span class="keyword">and</span> j &lt; len(B); )</div><div class="line">&#123;</div><div class="line">   <span class="keyword">if</span> (A[i] == B[j])</div><div class="line">   &#123;</div><div class="line">      add A[i] to Same;</div><div class="line">      i++;</div><div class="line">      j++;</div><div class="line">      <span class="keyword">continue</span>;</div><div class="line">   &#125;   </div><div class="line"></div><div class="line">   <span class="keyword">if</span> (A[i] &lt; B[j])</div><div class="line">   &#123;</div><div class="line">      add A[i] to DA;</div><div class="line">      i++;</div><div class="line">      <span class="keyword">continue</span>;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="keyword">if</span> (A[i] &gt; B[j])</div><div class="line">   &#123;</div><div class="line">      add B[j] to DB;</div><div class="line">      j++;</div><div class="line">      <span class="keyword">continue</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (; i &lt; len(A); i++)</div><div class="line">&#123;</div><div class="line">    add A[i] to DA;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">for</span> (; j &lt; len(B); j++)</div><div class="line">&#123;</div><div class="line">    add B[j] to DB;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>well-known, the time complexity is len(A)+len(B).</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">sorted</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">comparing</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/programe//" class="article-tag-list-link color4">programe</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/programe/algorithm//" class="article-tag-list-link color5">algorithm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2014/12/28/comparing-of-two-sorted-containers/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-software-list-for-fresh-ubuntu-os" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/12/28/software-list-for-fresh-ubuntu-os/">Software list for fresh ubuntu OS</a>
-    </h1>
-  
-
-        
-        <a href="/2014/12/28/software-list-for-fresh-ubuntu-os/" class="archive-article-date">
-  	<time datetime="2014-12-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-12-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>个人记录使用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install chromium-browser </div><div class="line">sudo apt-get install pepperflashplugin-nonfree</div><div class="line">sudo update-pepperflashplugin-nonfree --install</div><div class="line">sudo apt-get install git haskell-platform</div><div class="line">sudo apt-get install vim-gnome texlive </div><div class="line">sudo apt-get install rake</div><div class="line">sudo apt-get install jekyll</div></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">software list</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">list</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/utility//" class="article-tag-list-link color3">utility</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/utility/ubuntu//" class="article-tag-list-link color2">ubuntu</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2014/12/28/software-list-for-fresh-ubuntu-os/">展开全文 >></a>
         </p>
       
 
@@ -1304,11 +1310,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">木兰天池</a>
+                <a href="javascript:void(0)" class="js-tag color3">生活</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生活</a>
+                <a href="javascript:void(0)" class="js-tag color5">木兰天池</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1340,7 +1346,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">slideshare</a>
+                <a href="javascript:void(0)" class="js-tag color4">jimmy，漫画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">情感</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1364,15 +1374,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jimmy，漫画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">情感</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Google</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Ethics and Responsibilities</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">research</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">slideshare</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1396,14 +1410,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Ethics and Responsibilities</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">research</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">segment fault</a>
               </li>
              
@@ -1417,18 +1423,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pthreads</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">bibliography</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">entry type</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tex</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1464,15 +1458,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">bibliography</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">entry type</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">tex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">清明 生命 初生</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">开学典礼</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">武汉大学</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1508,6 +1506,14 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">开学典礼</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">武汉大学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">company</a>
               </li>
              
@@ -1536,14 +1542,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">macro leveldb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Jekyll, theme</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
               </li>
              
@@ -1560,23 +1558,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">std</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">boost</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">bind</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">c++11</a>
+                <a href="javascript:void(0)" class="js-tag color4">macro leveldb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1600,11 +1582,27 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">manage finances</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Full Stack Developer</a>
+                <a href="javascript:void(0)" class="js-tag color4">std</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">boost</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">bind</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">c++11</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">manage finances</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1636,6 +1634,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Full Stack Developer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">thingking</a>
               </li>
              
@@ -1644,11 +1646,23 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Jekyll, theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">sorted</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">comparing</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">software list</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">list</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1664,23 +1678,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">software list</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">list</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jekyll</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">tabobao source</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1692,11 +1694,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">json</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">programming</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">readable code</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1712,10 +1722,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Alternative operator</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">initialization list</a>
               </li>
              
@@ -1724,7 +1730,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">readable code</a>
+                <a href="javascript:void(0)" class="js-tag color5">game</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">sensors</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Alternative operator</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1740,15 +1754,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">game</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">sensors</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">career</a>
+                <a href="javascript:void(0)" class="js-tag color3">optimization</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1756,15 +1762,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">optimization</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">chicken soup</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">self active</a>
+                <a href="javascript:void(0)" class="js-tag color2">career</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1789,6 +1787,14 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">cpplint</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">chicken soup</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">self active</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1829,6 +1835,22 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">诊股</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">firework</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">gfw</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mirrors</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -156,6 +156,243 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-how-to-analyse-open-source-project" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/09/how-to-analyse-open-source-project/">开源代码的使用和学习</a>
+    </h1>
+  
+
+        
+        <a href="/2015/12/09/how-to-analyse-open-source-project/" class="archive-article-date">
+  	<time datetime="2015-12-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><h1 id="开源代码的特点"><a href="#开源代码的特点" class="headerlink" title="开源代码的特点"></a>开源代码的特点</h1><ul>
+<li>文档可能是少且旧</li>
+<li>细节问题只能在代码中找答案</li>
+<li>越新的项目坑越多</li>
+<li>社区的重要性</li>
+<li>互惠互利原则</li>
+</ul>
+<h1 id="如何融入社区，用好社区"><a href="#如何融入社区，用好社区" class="headerlink" title="如何融入社区，用好社区"></a>如何融入社区，用好社区</h1><ul>
+<li>使用开源项目</li>
+<li>反馈<ul>
+<li>提交bug</li>
+<li>提交patch</li>
+</ul>
+</li>
+<li>帮助他人</li>
+</ul>
+<h1 id="分析过程"><a href="#分析过程" class="headerlink" title="分析过程"></a>分析过程</h1><h3 id="调查形成基本印象"><a href="#调查形成基本印象" class="headerlink" title="调查形成基本印象"></a>调查形成基本印象</h3><h4 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h4><ul>
+<li>获得概貌信息</li>
+<li>社区、邮件组地址等</li>
+</ul>
+<h4 id="搜索引擎"><a href="#搜索引擎" class="headerlink" title="搜索引擎"></a>搜索引擎</h4><ul>
+<li>Google is better than baidu</li>
+</ul>
+<h4 id="论坛"><a href="#论坛" class="headerlink" title="论坛"></a>论坛</h4><ul>
+<li>stackoverflow</li>
+<li>stackexchange</li>
+<li>邮件组</li>
+</ul>
+<h4 id="中英结合，掌握一手资料"><a href="#中英结合，掌握一手资料" class="headerlink" title="中英结合，掌握一手资料"></a>中英结合，掌握一手资料</h4><ul>
+<li>成熟且国内大量应用的项目，找中文资料也可</li>
+<li>新颖项目可能缺少中文资料</li>
+<li>真理只在源码中</li>
+</ul>
+<h4 id="源码结构性浏览"><a href="#源码结构性浏览" class="headerlink" title="源码结构性浏览"></a>源码结构性浏览</h4><h3 id="带着问题开始分析"><a href="#带着问题开始分析" class="headerlink" title="带着问题开始分析"></a>带着问题开始分析</h3><p>这样具有更强的针对性，有利于注意力集中，避免被大量的代码分散。</p>
+<h4 id="准备记事本，记录分析过程要点"><a href="#准备记事本，记录分析过程要点" class="headerlink" title="准备记事本，记录分析过程要点"></a>准备记事本，记录分析过程要点</h4><h4 id="罗列尽可能多的假设和怀疑"><a href="#罗列尽可能多的假设和怀疑" class="headerlink" title="罗列尽可能多的假设和怀疑"></a>罗列尽可能多的假设和怀疑</h4><h4 id="准备熟悉的IDE工具，解析代码层次"><a href="#准备熟悉的IDE工具，解析代码层次" class="headerlink" title="准备熟悉的IDE工具，解析代码层次"></a>准备熟悉的IDE工具，解析代码层次</h4><p>Java推荐IdeaJ</p>
+<p>   Python推荐PyCharm</p>
+<p>   C/C++用VS+小番茄</p>
+<h4 id="构建能跑起来的测试用例"><a href="#构建能跑起来的测试用例" class="headerlink" title="构建能跑起来的测试用例"></a>构建能跑起来的测试用例</h4><p>   端到端打通</p>
+<p>   便于调试和查看堆栈</p>
+<h4 id="开始分析源码"><a href="#开始分析源码" class="headerlink" title="开始分析源码"></a>开始分析源码</h4><p>   静态分析和动态运行相结合</p>
+<p>   依次验证不同可能性的假设</p>
+<p>   更新知识，验证或推翻已有假设，或增加新的假设</p>
+<p>   最终找到问题的答案</p>
+<h4 id="将问题和分析结果写成文档"><a href="#将问题和分析结果写成文档" class="headerlink" title="将问题和分析结果写成文档"></a>将问题和分析结果写成文档</h4><h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>这里介绍一个debug的小例子。</p>
+<p>问题背景：<br>我们团队曾经使用过<a href="http://flume.apache.org/" target="_blank" rel="external">Apache Flume</a>作为数据传输通道。使用初期，大家对该开源项目并不是特别了解，<br>遇到过不少问题，很多时候必须深入源码才能正确和高效地使用flume。我们曾经遇到过因为flume的source线程配置不对，导致系统频繁出现OOM的问题。</p>
+<p>现象：从日志中可以获得的信息很少<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Exception in thread &quot;Flume Thrift IPC Thread 14470&quot; java.lang.OutOfMemoryError: Java heap space</div></pre></td></tr></table></figure></p>
+<p>都是类似这样的信息，差别仅仅是Thread后面的数字不同。</p>
+<p>通过分析，我们可以猜测到：</p>
+<ol>
+<li>从关键词OutOfMemory和Thread上，我们猜测是某个或某些线程上申请内存失败导致了OOM，但是不清楚是谁吃掉了大量的内存。</li>
+<li>日志中有个奇怪的奇怪的线索，出现OOM时，Thread后面的数字都比较大，多超过了1万。假如这个数字代表是线程号，那么很可能是某个逻辑出错，产生了大量的线程。因为我们知道Java进程中<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html#getId(" target="_blank" rel="external">线程ID是从1开始的正整数</a>)。</li>
+</ol>
+<p>有了猜想，我们需要来验证，验证过程关键点如下：</p>
+<ol>
+<li>准备flume相关的所有源码，加载到IDE或习惯使用的文本编辑器中。</li>
+<li>根据日志中的”Flume Thrift IPC Thread”关键词进行全文搜索，减小范围，定位到org.apache.flume.source.ThriftSource这个文件。</li>
+<li>阅读相关代码，找到问题答案。</li>
+</ol>
+<p>因为Flume是一个用Java编写的项目，我这里用IdeaJ来加载所有代码，首先用全文检索“ctr+shift+F”功能，检索结果如下，<br><img src="/images/ThriftSource.png" alt="ThriftSource.png"><br>很幸运，仅有一个文件出现了该关键字。</p>
+<p>阅读这部分代码，可以知道：</p>
+<ol>
+<li>搜索的关键字是作为线程名的格式化字符串使用的。</li>
+<li>图中324-325行从类名、变量名上都可以猜测，是生成了一个线程工厂实例，而具体线程将做什么操作是没有确定。</li>
+<li>从326-330行，我们可以知道，根据<code>maxThreads</code>变量是否等于0，来构造不同的线程池<code>sourceService</code>，查看JDK中关于<code>Executors.newCachedThreadPool</code>和<code>Executors.newFixedThreadPool</code>都没有什么异常，因为线程池就是为了复用，怎么会导致OOM呢？</li>
+<li>实际上问题就是出在329行，固定线程数的线程池如果线程数设置成非常大，那么一样会不停地向系统申请资源创建线程哦。根本原因就在于<code>maxThreads</code>变量的值不合理。</li>
+<li>接着我们找到<code>maxThreads</code>设置的地方，见下图<img src="/images/thread-num.gif" alt="maxThreads setting">, 从代码中可以知道当用户没有设置<code>CONFIG_HREADS</code>时，140行代码将会设置<code>maxThreads = 0</code>，而接着的141行却会因为其等于0而将其设置成<code>integer.MAX_VALUE</code>，而这个值是非常大的，等于2^31-1。</li>
+</ol>
+<p>此时我们知道这块代码实现上不太合理，当用户没有设置线程数时，默认的行为居然是走到2^31-1这么大的线程池里面。<br>当不断有新请求过来，flume处理上会向<code>sourceService</code>线程池申请一个可用的线程对象，如果老的请求是长任务，那么老任务可能根本没有结束，<br>又因为当前线程数没有超过设定的上限，那么<code>sourceService</code>就会向系统申请内存来创建新的线程。如此反复，当系统运行到一定时间，必然会爆发OOM的问题。</p>
+<p>找到原因后，我们增加了配置参数，设定了线程数为合理的数值，后面测试就没有发现这个问题。</p>
+<p>总结：事后，我们分析发现，纯粹从使用者角度来使用flume的<a href="https://flume.apache.org/FlumeUserGuide.html#thrift-source" target="_blank" rel="external">thrift source</a>时，<br>根据官方手册，并没有指明<code>threads</code>参数是<code>required</code>类型，包括示例配置都没有配<code>threads</code>参数，因此用户默认不配置是常见的。为此，我们从用户体验角度，<br>给flume提交了一个patch，建议将用户没有设置该参数时的默认值从0改成5.</p>
+<h1 id="工具介绍"><a href="#工具介绍" class="headerlink" title="工具介绍"></a>工具介绍</h1><ul>
+<li>everything</li>
+<li>win快捷键</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">open source</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/programing//" class="article-tag-list-link color1">programing</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/programing/open-source//" class="article-tag-list-link color2">open source</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/12/09/how-to-analyse-open-source-project/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-powermock-hadoop-failure-to-login-error" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/06/powermock-hadoop-failure-to-login-error/">java.io.IOException: failure to login with PowerMock and Hadoop.</a>
+    </h1>
+  
+
+        
+        <a href="/2015/09/06/powermock-hadoop-failure-to-login-error/" class="archive-article-date">
+  	<time datetime="2015-09-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="What-is-it"><a href="#What-is-it" class="headerlink" title="What is it?"></a>What is it?</h1><p>If you have an application which uses the hadoop filesystem, and you want to do<br>some unit test on it. But the test environment with no hadoop, so we have to<br>mock the hadoop FileSystem.</p>
+<p>It is so sad that, we may occur with the exception on hadoop IOException<br>“failure to login”.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">java.io.IOException: failure to login</div><div class="line">    at org.apache.hadoop.security.UserGroupInformation$HadoopLoginModule.commit(UserGroupInformation.java:209)</div><div class="line">    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)</div><div class="line">    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)</div><div class="line">    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)</div><div class="line">    at java.lang.reflect.Method.invoke(Method.java:606)</div><div class="line">    at javax.security.auth.login.LoginContext.invoke(LoginContext.java:762)</div><div class="line">    at javax.security.auth.login.LoginContext.access$000(LoginContext.java:203)</div><div class="line">    at javax.security.auth.login.LoginContext$4.run(LoginContext.java:690)</div><div class="line">    at javax.security.auth.login.LoginContext$4.run(LoginContext.java:688)</div><div class="line">    at java.security.AccessController.doPrivileged(Native Method)</div><div class="line">    at javax.security.auth.login.LoginContext.invokePriv(LoginContext.java:687)</div><div class="line">    at javax.security.auth.login.LoginContext.login(LoginContext.java:596)</div><div class="line">    at org.apache.hadoop.security.UserGroupInformation.loginUserFromSubject(UserGroupInformation.java:798)</div><div class="line">    at org.apache.hadoop.security.UserGroupInformation.getLoginUser(UserGroupInformation.java:760)</div><div class="line">    at org.apache.hadoop.security.UserGroupInformation.getCurrentUser(UserGroupInformation.java:633)</div><div class="line">    at org.apache.hadoop.fs.FileSystem$Cache$Key.&lt;init&gt;(FileSystem.java:2812)</div><div class="line">    at org.apache.hadoop.fs.FileSystem$Cache$Key.&lt;init&gt;(FileSystem.java:2802)</div><div class="line">    at org.apache.hadoop.fs.FileSystem$Cache.get(FileSystem.java:2668)</div><div class="line">    at org.apache.hadoop.fs.FileSystem.get(FileSystem.java:371)</div><div class="line">    at org.apache.hadoop.fs.FileSystem.get(FileSystem.java:170)</div><div class="line">    at com.tencent.ieg.spectrum.TaskLocalInfo.createParquetWriter(TaskLocalInfo.java:291)</div><div class="line">    at com.tencent.ieg.spectrum.EventProcessor.convertAndWrite(EventProcessor.java:423)</div><div class="line">    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)</div><div class="line">    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)</div><div class="line">    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)</div><div class="line">    at java.lang.reflect.Method.invoke(Method.java:606)</div><div class="line">    at org.powermock.api.mockito.internal.invocation.MockitoMethodInvocationControl$1.invoke(MockitoMethodInvocationControl.java:240)</div><div class="line">    at org.mockito.internal.invocation.realmethod.CleanTraceRealMethod.invoke(CleanTraceRealMethod.java:30)</div><div class="line">    at org.mockito.internal.invocation.InvocationImpl.callRealMethod(InvocationImpl.java:112)</div><div class="line">    at org.mockito.internal.stubbing.answers.CallsRealMethods.answer(CallsRealMethods.java:41)</div><div class="line">    at org.mockito.internal.handler.MockHandlerImpl.handle(MockHandlerImpl.java:93)</div><div class="line">    at org.powermock.api.mockito.internal.invocation.MockitoMethodInvocationControl.performIntercept(MockitoMethodInvocationControl.java:262)</div><div class="line">    at org.powermock.api.mockito.internal.invocation.MockitoMethodInvocationControl.invoke(MockitoMethodInvocationControl.java:190)</div><div class="line">    at org.powermock.core.MockGateway.doMethodCall(MockGateway.java:124)</div><div class="line">    at org.powermock.core.MockGateway.methodCall(MockGateway.java:185)</div><div class="line">    at com.tencent.ieg.spectrum.EventProcessor.convertAndWrite(EventProcessor.java)</div><div class="line">    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)</div><div class="line">    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)</div><div class="line">    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)</div><div class="line">    at java.lang.reflect.Method.invoke(Method.java:606)</div><div class="line">    at org.powermock.reflect.internal.WhiteboxImpl.performMethodInvocation(WhiteboxImpl.java:1873)</div><div class="line">    at org.powermock.reflect.internal.WhiteboxImpl.doInvokeMethod(WhiteboxImpl.java:773)</div><div class="line">    at org.powermock.reflect.internal.WhiteboxImpl.invokeMethod(WhiteboxImpl.java:638)</div><div class="line">    at org.powermock.reflect.Whitebox.invokeMethod(Whitebox.java:401)</div><div class="line">    at com.tencent.ieg.spectrum.EventProcessorTest.testConvertAndWriteWithEmptyData(EventProcessorTest.java:391)</div></pre></td></tr></table></figure>
+<p>That is caused by the PowerMock, it hack the classloader, which make it return<br>an empty string for getCurrentUser.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<h1 id="How-to-solve-it"><a href="#How-to-solve-it" class="headerlink" title="How to solve it?"></a>How to solve it?</h1><p>Know the reason, and the solution comes.</p>
+<p>You can solve it by a shell like this,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export HADOOP_USER_NAME=&quot;some-body-you-like&quot;</div></pre></td></tr></table></figure>
+<p>Or in the setup of JUnit, add one line like</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">System.setProperty(&quot;HADOOP_USER_NAME&quot;,&quot;something-you-like&quot;);</div></pre></td></tr></table></figure>
+<p>OK, it is solved in my case, I choose the second one.</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p>If you use Spark, you also may meet with this problem, see the solution,</p>
+<p><a href="http://stackoverflow.com/questions/31534458/failing-integration-test-for-apache-spark-streaming" target="_blank" rel="external">http://stackoverflow.com/questions/31534458/failing-integration-test-for-apache-spark-streaming</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/09/06/powermock-hadoop-failure-to-login-error/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-flume-thrift-source-threads" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -594,104 +831,6 @@
 
 
   
-    <article id="post-interger-optimization-and-convex-optimization" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/05/14/interger-optimization-and-convex-optimization/">Some Optimization Material</a>
-    </h1>
-  
-
-        
-        <a href="/2015/05/14/interger-optimization-and-convex-optimization/" class="archive-article-date">
-  	<time datetime="2015-05-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-05-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在网络上可以参考上海复旦大学孙小玲教授的-整数规划课程，在台大有公开课视频。</p>
-<p>Convex Optimization可以在网上找Stanford和UCLA EE工程系的Stephen Boyd和Lieven Vandenberhe合著的<code>Convex Optimization</code></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">optimization</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/optimzation//" class="article-tag-list-link color2">optimzation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/optimzation/convex-optimization//" class="article-tag-list-link color5">convex optimization</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/optimzation/convex-optimization/ILP//" class="article-tag-list-link color4">ILP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/05/14/interger-optimization-and-convex-optimization/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-graph-algorithm-libs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -766,6 +905,104 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2015/05/14/graph-algorithm-libs/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-interger-optimization-and-convex-optimization" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/14/interger-optimization-and-convex-optimization/">Some Optimization Material</a>
+    </h1>
+  
+
+        
+        <a href="/2015/05/14/interger-optimization-and-convex-optimization/" class="archive-article-date">
+  	<time datetime="2015-05-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-05-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在网络上可以参考上海复旦大学孙小玲教授的-整数规划课程，在台大有公开课视频。</p>
+<p>Convex Optimization可以在网上找Stanford和UCLA EE工程系的Stephen Boyd和Lieven Vandenberhe合著的<code>Convex Optimization</code></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">optimization</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/optimzation//" class="article-tag-list-link color2">optimzation</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/optimzation/convex-optimization//" class="article-tag-list-link color5">convex optimization</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/optimzation/convex-optimization/ILP//" class="article-tag-list-link color4">ILP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/05/14/interger-optimization-and-convex-optimization/">展开全文 >></a>
         </p>
       
 
@@ -1000,213 +1237,6 @@
 
 
   
-    <article id="post-reading-report-pagerank-on-a-evolving-graph" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/05/04/reading-report-pagerank-on-a-evolving-graph/">PageRank on an Evolving Graph</a>
-    </h1>
-  
-
-        
-        <a href="/2015/05/04/reading-report-pagerank-on-a-evolving-graph/" class="archive-article-date">
-  	<time datetime="2015-05-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-05-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="PageRank-on-an-Evolving-Graph"><a href="#PageRank-on-an-Evolving-Graph" class="headerlink" title="PageRank on an Evolving Graph"></a>PageRank on an Evolving Graph</h1><!--
- @Date    : 2015-05-04 10:40:38
- @Author  : Jackey Lyu (lvlin@huawei.com)
- @Link    : http://jackeylu.com 
- @Version : $Id$
--->
-<p>这是KDD 2012中的一篇论文，作者是Bahman Bahmani, Ravi Kumar, Mohammad Mahdian, Eli Upfal，<br>是Stanford、Yahoo! Research,Brown Universtiy的合作文章。<br>讲述的问题是：没有办法获得全体数据（或者数据在求解过程中会发生变化）的情况下，<br>如何让阶段性结果的准确性逼近。作者选取PageRank问题和算法在此类输入下进行分析验证。</p>
-<h1 id="背景描述"><a href="#背景描述" class="headerlink" title="背景描述"></a>背景描述</h1><p>Broadly speaking, algorithms for PageRank fall into one of two categories:<br>linear algebraic methods and Monte Carlo methods.</p>
-<p>Algorithms for updating PageRank values upon changes to the network have<br>been proposed in both the broad categories mentioned above.<br>A family of the linear algebraic methods use the “aggregation” idea to<br>efficiently update the PageRank vector.<br>Tong et al. and McSherry also propose algorithms to deal with PageRank updates.</p>
-<p>但这些都是 assume knowledge of all the changes in the network. </p>
-<p>问题的模型最早由Anagnostopoulos et al.提出。<br>In contrast with more traditional computation models such as streaming,<br>property testing, multi-armed-bandits, and dynamic graph models,<br>this model captures both of the two essential properties of large evolving data applications:<br>the input is changing over time without notifying the algorithm,<br>and the only way for the algorithm to learn about these changes<br>(to accordingly update its soultion) is by periodically probing the input in a limited way.<br>Anagnostopoulos et al. formalize this framework and study sorting, selection,<br>and basic graph connectivity problems in this computation model.</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">reading report</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">dynamic algorithm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">big data algorithm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/algorithm//" class="article-tag-list-link color5">algorithm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/algorithm/dynamic-algorithm//" class="article-tag-list-link color3">dynamic algorithm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/algorithm/dynamic-algorithm/reading-report//" class="article-tag-list-link color5">reading report</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/05/04/reading-report-pagerank-on-a-evolving-graph/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-cpp-alternative-operator-representations" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/04/15/cpp-alternative-operator-representations/">Alternative operator representations</a>
-    </h1>
-  
-
-        
-        <a href="/2015/04/15/cpp-alternative-operator-representations/" class="archive-article-date">
-  	<time datetime="2015-04-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-04-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Can this code be compiled?</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">%:include &lt;iostream&gt;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv&lt;::&gt;)</span> </span></div><div class="line">&lt;%</div><div class="line">    <span class="keyword">if</span> (argc &gt; <span class="number">1</span> <span class="keyword">and</span> argv&lt;:<span class="number">1</span>:&gt; not_eq <span class="literal">NULL</span>) &lt;%</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello, "</span> &lt;&lt; argv&lt;:<span class="number">1</span>:&gt; &lt;&lt; <span class="string">'\n'</span>;</div><div class="line">    %&gt;</div><div class="line">%&gt;</div></pre></td></tr></table></figure>
-<p>yes! this is alternative operator representations, see <a href="http://en.cppreference.com/w/cpp/language/operator_alternative" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/operator_alternative</a> for more details.</p>
-<p>It is same with<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">if</span> (argc &gt; <span class="number">1</span> <span class="keyword">and</span> argv[<span class="number">1</span>] != <span class="literal">NULL</span>) &#123;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello, "</span> &lt;&lt; argv[<span class="number">1</span>] &lt;&lt; <span class="string">'\n'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Alternative operator</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/programming//" class="article-tag-list-link color2">programming</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/programming/c//" class="article-tag-list-link color4">c++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/04/15/cpp-alternative-operator-representations/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1312,11 +1342,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">木兰天池</a>
+                <a href="javascript:void(0)" class="js-tag color3">生活</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生活</a>
+                <a href="javascript:void(0)" class="js-tag color5">木兰天池</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1348,7 +1378,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">slideshare</a>
+                <a href="javascript:void(0)" class="js-tag color4">jimmy，漫画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">情感</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1372,15 +1406,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jimmy，漫画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">情感</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Google</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Ethics and Responsibilities</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">research</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">slideshare</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1404,14 +1442,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Ethics and Responsibilities</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">research</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">segment fault</a>
               </li>
              
@@ -1425,18 +1455,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pthreads</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">bibliography</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">entry type</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tex</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1472,15 +1490,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">bibliography</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">entry type</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">tex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">清明 生命 初生</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">开学典礼</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">武汉大学</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1516,6 +1538,14 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">开学典礼</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">武汉大学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">company</a>
               </li>
              
@@ -1544,14 +1574,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">macro leveldb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Jekyll, theme</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
               </li>
              
@@ -1568,23 +1590,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">std</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">boost</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">bind</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">c++11</a>
+                <a href="javascript:void(0)" class="js-tag color4">macro leveldb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1608,11 +1614,27 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">manage finances</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Full Stack Developer</a>
+                <a href="javascript:void(0)" class="js-tag color4">std</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">boost</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">bind</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">c++11</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">manage finances</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1644,6 +1666,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Full Stack Developer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">thingking</a>
               </li>
              
@@ -1652,11 +1678,23 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Jekyll, theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">sorted</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">comparing</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">software list</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">list</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1672,23 +1710,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">software list</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">list</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jekyll</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">tabobao source</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1700,11 +1726,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">json</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">programming</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">readable code</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1720,10 +1754,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Alternative operator</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">initialization list</a>
               </li>
              
@@ -1732,7 +1762,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">readable code</a>
+                <a href="javascript:void(0)" class="js-tag color5">game</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">sensors</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Alternative operator</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1748,15 +1786,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">game</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">sensors</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">career</a>
+                <a href="javascript:void(0)" class="js-tag color3">optimization</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1764,15 +1794,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">optimization</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">chicken soup</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">self active</a>
+                <a href="javascript:void(0)" class="js-tag color2">career</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1797,6 +1819,14 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">cpplint</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">chicken soup</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">self active</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1837,6 +1867,22 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">诊股</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">firework</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">gfw</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mirrors</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
